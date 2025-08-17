@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 12.2%);
+  --card-foreground: hsl(0, 0%, 100%);
+  --popover: hsl(0, 0%, 12.2%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --primary: hsl(45, 93%, 63%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 17.6%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --muted: hsl(0, 0%, 17.6%);
+  --muted-foreground: hsl(0, 0%, 63.9%);
+  --accent: hsl(45, 93%, 63%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 85.7%, 97.3%);
+  --border: hsl(45, 93%, 63%, 0.2);
+  --input: hsl(0, 0%, 17.6%);
+  --ring: hsl(45, 93%, 63%);
+  --chart-1: hsl(45, 93%, 63%);
+  --chart-2: hsl(160, 60%, 45%);
+  --chart-3: hsl(30, 80%, 55%);
+  --chart-4: hsl(280, 65%, 60%);
+  --chart-5: hsl(340, 75%, 55%);
+  --sidebar: hsl(0, 0%, 12.2%);
+  --sidebar-foreground: hsl(0, 0%, 100%);
+  --sidebar-primary: hsl(45, 93%, 63%);
+  --sidebar-primary-foreground: hsl(0, 0%, 0%);
+  --sidebar-accent: hsl(45, 93%, 63%);
+  --sidebar-accent-foreground: hsl(0, 0%, 0%);
+  --sidebar-border: hsl(45, 93%, 63%, 0.2);
+  --sidebar-ring: hsl(45, 93%, 63%);
+  --electric-yellow: hsl(45, 93%, 63%);
+  --dark-gold: hsl(38, 92%, 50%);
+  --charcoal: hsl(0, 0%, 12.2%);
+  --dark-gray: hsl(0, 0%, 17.6%);
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 12.2%);
+  --card-foreground: hsl(0, 0%, 100%);
+  --popover: hsl(0, 0%, 12.2%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --primary: hsl(45, 93%, 63%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 17.6%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --muted: hsl(0, 0%, 17.6%);
+  --muted-foreground: hsl(0, 0%, 63.9%);
+  --accent: hsl(45, 93%, 63%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 85.7%, 97.3%);
+  --border: hsl(45, 93%, 63%, 0.2);
+  --input: hsl(0, 0%, 17.6%);
+  --ring: hsl(45, 93%, 63%);
+  --electric-yellow: hsl(45, 93%, 63%);
+  --dark-gold: hsl(38, 92%, 50%);
+  --charcoal: hsl(0, 0%, 12.2%);
+  --dark-gray: hsl(0, 0%, 17.6%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glow-yellow {
+    box-shadow: 0 0 20px hsl(45, 93%, 63%, 0.3);
+  }
+  
+  .glow-yellow-strong {
+    box-shadow: 0 0 30px hsl(45, 93%, 63%, 0.6);
+  }
+  
+  .gradient-dark {
+    background: linear-gradient(135deg, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 12.2%) 100%);
+  }
+  
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px hsl(45, 93%, 63%, 0.4);
+  }
+  
+  .electric-yellow {
+    color: hsl(45, 93%, 63%);
+  }
+  
+  .bg-electric-yellow {
+    background-color: hsl(45, 93%, 63%);
+  }
+  
+  .border-electric-yellow {
+    border-color: hsl(45, 93%, 63%);
+  }
+  
+  .bg-charcoal {
+    background-color: hsl(0, 0%, 12.2%);
+  }
+  
+  .bg-dark-gray {
+    background-color: hsl(0, 0%, 17.6%);
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
