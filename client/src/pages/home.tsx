@@ -52,9 +52,10 @@ export default function Home() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-                alt="Modern electronics store interior"
-                className="rounded-2xl shadow-2xl glow-yellow"
+                src="products.jpg"
+                alt="Apple Products"
+                style={{width: 600, height: 480}}
+                className="object-cover rounded-2xl shadow-2xl glow-yellow"
               />
               <div className="absolute -bottom-6 -right-6 bg-electric-yellow text-black p-4 rounded-xl font-bold">
                 <i className="fas fa-shield-alt mr-2"></i>

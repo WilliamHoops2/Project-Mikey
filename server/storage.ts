@@ -48,25 +48,25 @@ export class MemStorage implements IStorage {
         name: "malang",
         displayName: "Malang",
         productCount: 15,
-        imageUrl: "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200"
+        imageUrl: "/cities/malang.jpeg"
       },
       {
         name: "surabaya",
         displayName: "Surabaya",
         productCount: 23,
-        imageUrl: "https://images.unsplash.com/photo-1555400082-5b7c81ee8cc3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200"
+        imageUrl: "/cities/surabaya.jpeg"
       },
       {
         name: "bandung",
         displayName: "Bandung",
         productCount: 18,
-        imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200"
+        imageUrl: "cities/bandung.png"
       },
       {
         name: "jakarta",
         displayName: "Jakarta",
         productCount: 32,
-        imageUrl: "https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200"
+        imageUrl: "/cities/jakarta.jpg"
       }
     ];
 
