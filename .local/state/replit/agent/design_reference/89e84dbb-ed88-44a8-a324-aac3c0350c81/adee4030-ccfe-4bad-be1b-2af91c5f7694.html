@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikey Applestuff - Premium Apple Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    'electric-yellow': '#FCD34D',
+                    'dark-gold': '#F59E0B',
+                    'charcoal': '#1F1F1F',
+                    'dark-gray': '#2D2D2D',
+                }
+            }
+        }
+    };
+    </script>
+    <style>
+        .glow-yellow {
+            box-shadow: 0 0 20px rgba(252, 211, 77, 0.3);
+        }
+        .glow-yellow-strong {
+            box-shadow: 0 0 30px rgba(252, 211, 77, 0.6);
+        }
+        .gradient-dark {
+            background: linear-gradient(135deg, #000000 0%, #1F1F1F 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 25px rgba(252, 211, 77, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-inter">
+
+    <!-- @COMPONENT: Navigation -->
+    <nav class="gradient-dark border-b border-electric-yellow/20 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <i class="fab fa-apple text-electric-yellow text-2xl"></i>
+                    <span class="text-xl font-bold">Mikey Applestuff</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-electric-yellow transition-colors duration-300" onclick="showSection('home')">Home</a>
+                    <a href="#buy" class="nav-link text-white hover:text-electric-yellow transition-colors duration-300" onclick="showSection('buy')">Buy</a>
+                    <a href="#sell" class="nav-link text-white hover:text-electric-yellow transition-colors duration-300" onclick="showSection('sell')">Sell</a>
+                    <a href="#contact" class="nav-link text-white hover:text-electric-yellow transition-colors duration-300" onclick="showSection('contact')">Contact</a>
+                </div>
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#home" class="block py-2 text-white hover:text-electric-yellow transition-colors duration-300" onclick="showSection('home')">Home</a>
+                <a href="#buy" class="block py-2 text-white hover:text-electric-yellow transition-colors duration-300" onclick="showSection('buy')">Buy</a>
+                <a href="#sell" class="block py-2 text-white hover:text-electric-yellow transition-colors duration-300" onclick="showSection('sell')">Sell</a>
+                <a href="#contact" class="block py-2 text-white hover:text-electric-yellow transition-colors duration-300" onclick="showSection('contact')">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: HomePage -->
+    <section id="home" class="section-content">
+        <!-- Hero Section -->
+        <div class="gradient-dark min-h-screen flex items-center">
+            <div class="container mx-auto px-4 py-20">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div class="space-y-4">
+                            <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                                Premium <span class="text-electric-yellow">Apple</span> Products
+                            </h1>
+                            <p class="text-xl text-gray-300 leading-relaxed">
+                                Your trusted marketplace for authentic Apple devices across Indonesia. Buy and sell with confidence.
+                            </p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button onclick="showSection('buy')" class="bg-electric-yellow text-black px-8 py-4 rounded-xl font-semibold hover:glow-yellow-strong transition-all duration-300">
+                                <i class="fas fa-shopping-cart mr-2"></i>Shop Now
+                            </button>
+                            <button onclick="showSection('sell')" class="border-2 border-electric-yellow text-electric-yellow px-8 py-4 rounded-xl font-semibold hover:bg-electric-yellow hover:text-black transition-all duration-300">
+                                <i class="fas fa-dollar-sign mr-2"></i>Sell Device
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <!-- Modern electronics store showcase -->
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Modern electronics store interior" class="rounded-2xl shadow-2xl glow-yellow" />
+                        <div class="absolute -bottom-6 -right-6 bg-electric-yellow text-black p-4 rounded-xl font-bold">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            100% Authentic
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Dashboard -->
+        <div class="bg-charcoal py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    Trusted by <span class="text-electric-yellow">Thousands</span>
+                </h2>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="text-center bg-dark-gray p-8 rounded-2xl border border-electric-yellow/20 card-hover">
+                        <div class="text-4xl font-bold text-electric-yellow mb-2" data-bind="stats.totalSales">2,500+</div>
+                        <div class="text-gray-300">Devices Sold</div>
+                    </div>
+                    <div class="text-center bg-dark-gray p-8 rounded-2xl border border-electric-yellow/20 card-hover">
+                        <div class="text-4xl font-bold text-electric-yellow mb-2" data-bind="stats.activeCities">4</div>
+                        <div class="text-gray-300">Cities Covered</div>
+                    </div>
+                    <div class="text-center bg-dark-gray p-8 rounded-2xl border border-electric-yellow/20 card-hover">
+                        <div class="text-4xl font-bold text-electric-yellow mb-2" data-bind="stats.happyCustomers">98%</div>
+                        <div class="text-gray-300">Happy Customers</div>
+                    </div>
+                    <div class="text-center bg-dark-gray p-8 rounded-2xl border border-electric-yellow/20 card-hover">
+                        <div class="text-4xl font-bold text-electric-yellow mb-2" data-bind="stats.responseTime">24h</div>
+                        <div class="text-gray-300">Response Time</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="bg-black py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    Featured <span class="text-electric-yellow">Products</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- @MAP: featuredProducts.map(product => ( -->
+                    <div class="bg-charcoal rounded-2xl overflow-hidden border border-electric-yellow/20 card-hover">
+                        <!-- Apple iPhone showcase -->
+                        <img src="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" alt="iPhone showcase display" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-bind="product.name">iPhone 14 Pro Max</h3>
+                            <p class="text-gray-400 mb-4" data-bind="product.description">Latest flagship with Pro camera system</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-electric-yellow" data-bind="product.price">Rp 18,999,000</span>
+                                <span class="bg-electric-yellow/20 text-electric-yellow px-3 py-1 rounded-full text-sm" data-bind="product.stock">5 Available</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-charcoal rounded-2xl overflow-hidden border border-electric-yellow/20 card-hover">
+                        <!-- MacBook showcase -->
+                        <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" alt="MacBook Pro on wooden desk" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-bind="product.name">MacBook Pro M2</h3>
+                            <p class="text-gray-400 mb-4" data-bind="product.description">Powerful laptop for professionals</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-electric-yellow" data-bind="product.price">Rp 24,999,000</span>
+                                <span class="bg-electric-yellow/20 text-electric-yellow px-3 py-1 rounded-full text-sm" data-bind="product.stock">3 Available</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-charcoal rounded-2xl overflow-hidden border border-electric-yellow/20 card-hover">
+                        <!-- iPad showcase -->
+                        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" alt="iPad Pro with Apple Pencil" class="w-full h-64 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2" data-bind="product.name">iPad Pro 12.9"</h3>
+                            <p class="text-gray-400 mb-4" data-bind="product.description">Ultimate creative powerhouse</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-electric-yellow" data-bind="product.price">Rp 16,999,000</span>
+                                <span class="bg-electric-yellow/20 text-electric-yellow px-3 py-1 rounded-full text-sm" data-bind="product.stock">7 Available</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HomePage -->
+
+    <!-- @COMPONENT: BuyPage -->
+    <section id="buy" class="section-content hidden">
+        <div class="gradient-dark min-h-screen py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold mb-4">
+                        Buy <span class="text-electric-yellow">Apple Products</span>
+                    </h1>
+                    <p class="text-xl text-gray-300">Choose your city to view available products</p>
+                </div>
+
+                <!-- City Selection -->
+                <div class="grid md:grid-cols-4 gap-6 mb-16">
+                    <div class="city-card bg-charcoal rounded-2xl p-8 text-center border border-electric-yellow/20 cursor-pointer card-hover" onclick="selectCity('malang')">
+                        <!-- Malang city landmark -->
+                        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200" alt="Malang city colorful buildings" class="w-full h-32 object-cover rounded-xl mb-4" />
+                        <h3 class="text-2xl font-bold mb-2">Malang</h3>
+                        <p class="text-gray-400 mb-4">15 Products Available</p>
+                        <div class="bg-electric-yellow text-black px-4 py-2 rounded-lg font-semibold">
+                            <i class="fas fa-map-marker-alt mr-2"></i>Select City
+                        </div>
+                    </div>
+
+                    <div class="city-card bg-charcoal rounded-2xl p-8 text-center border border-electric-yellow/20 cursor-pointer card-hover" onclick="selectCity('surabaya')">
+                        <!-- Surabaya city landmark -->
+                        <img src="https://pixabay.com/get/g06a3d1ad2d41828c3fd17a096a7d37d490867a9487b6b0f98c55a586a2d12c01f6b983585b6e6623bcafa5f0fa68399f74ec46c2d63cdd66eaef413177b4c495_1280.jpg" alt="Surabaya modern skyline" class="w-full h-32 object-cover rounded-xl mb-4" />
+                        <h3 class="text-2xl font-bold mb-2">Surabaya</h3>
+                        <p class="text-gray-400 mb-4">23 Products Available</p>
+                        <div class="bg-electric-yellow text-black px-4 py-2 rounded-lg font-semibold">
+                            <i class="fas fa-map-marker-alt mr-2"></i>Select City
+                        </div>
+                    </div>
+
+                    <div class="city-card bg-charcoal rounded-2xl p-8 text-center border border-electric-yellow/20 cursor-pointer card-hover" onclick="selectCity('bandung')">
+                        <!-- Bandung city landmark -->
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=200" alt="Bandung mountain view with buildings" class="w-full h-32 object-cover rounded-xl mb-4" />
+                        <h3 class="text-2xl font-bold mb-2">Bandung</h3>
+                        <p class="text-gray-400 mb-4">18 Products Available</p>
+                        <div class="bg-electric-yellow text-black px-4 py-2 rounded-lg font-semibold">
+                            <i class="fas fa-map-marker-alt mr-2"></i>Select City
+                        </div>
+                    </div>
+
+                    <div class="city-card bg-charcoal rounded-2xl p-8 text-center border border-electric-yellow/20 cursor-pointer card-hover" onclick="selectCity('jakarta')">
+                        <!-- Jakarta city landmark -->
+                        <img src="https://pixabay.com/get/g3e556532d06f84ff4a8424ad00b914bd83f90d6c4058b423a2819ffd67a504895569abe610c4d0b7239ecf4c67f00d71e61943e1becd9c608ff987dcba4905e1_1280.jpg" alt="Jakarta downtown skyline at dusk" class="w-full h-32 object-cover rounded-xl mb-4" />
+                        <h3 class="text-2xl font-bold mb-2">Jakarta</h3>
+                        <p class="text-gray-400 mb-4">32 Products Available</p>
+                        <div class="bg-electric-yellow text-black px-4 py-2 rounded-lg font-semibold">
+                            <i class="fas fa-map-marker-alt mr-2"></i>Select City
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Catalog (shown after city selection) -->
+                <div id="product-catalog" class="hidden">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-3xl font-bold">
+                            Products in <span class="text-electric-yellow" id="selected-city">Jakarta</span>
+                        </h2>
+                        <div class="flex gap-4">
+                            <select class="bg-charcoal border border-electric-yellow/20 rounded-lg px-4 py-2 text-white">
+                                <option>All Categories</option>
+                                <option>iPhone</option>
+                                <option>iPad</option>
+                                <option>MacBook</option>
+                                <option>Accessories</option>
+                            </select>
+                            <select class="bg-charcoal border border-electric-yellow/20 rounded-lg px-4 py-2 text-white">
+                                <option>Sort by Price</option>
+                                <option>Low to High</option>
+                                <option>High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6" id="products-grid">
+                        <!-- Products will be loaded here based on city selection -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: BuyPage -->
+
+    <!-- @COMPONENT: SellPage -->
+    <section id="sell" class="section-content hidden">
+        <div class="gradient-dark min-h-screen py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold mb-4">
+                        Sell Your <span class="text-electric-yellow">Apple Device</span>
+                    </h1>
+                    <p class="text-xl text-gray-300">Get instant quotes for your Apple products</p>
+                </div>
+
+                <!-- Product Categories -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div class="bg-charcoal rounded-2xl p-8 text-center border border-electric-yellow/20 cursor-pointer card-hover" onclick="showProductList('iphone')">
+                        <i class="fas fa-mobile-alt text-4xl text-electric-yellow mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">iPhone</h3>
+                        <p class="text-gray-400">All iPhone models</p>
+                    </div>
+                    <div class="bg-charcoal rounded-2xl p-8 text-center border border-electric-yellow/20 cursor-pointer card-hover" onclick="showProductList('ipad')">
+                        <i class="fas fa-tablet-alt text-4xl text-electric-yellow mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">iPad</h3>
+                        <p class="text-gray-400">All iPad models</p>
+                    </div>
+                    <div class="bg-charcoal rounded-2xl p-8 text-center border border-electric-yellow/20 cursor-pointer card-hover" onclick="showProductList('macbook')">
+                        <i class="fas fa-laptop text-4xl text-electric-yellow mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">MacBook</h3>
+                        <p class="text-gray-400">All MacBook models</p>
+                    </div>
+                    <div class="bg-charcoal rounded-2xl p-8 text-center border border-electric-yellow/20 cursor-pointer card-hover" onclick="showProductList('accessories')">
+                        <i class="fas fa-headphones text-4xl text-electric-yellow mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Accessories</h3>
+                        <p class="text-gray-400">AirPods, Watch, etc.</p>
+                    </div>
+                </div>
+
+                <!-- Product List (shown after category selection) -->
+                <div id="sell-product-list" class="hidden">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold mb-4">
+                            Select Your <span class="text-electric-yellow">iPhone Model</span>
+                        </h2>
+                        <p class="text-gray-400">Choose your exact model to get an accurate quote</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- @MAP: sellableProducts.map(product => ( -->
+                        <div class="bg-charcoal rounded-2xl p-6 border border-electric-yellow/20 cursor-pointer card-hover" onclick="showPricingModal('iphone-14-pro-max')">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-bold" data-bind="product.model">iPhone 14 Pro Max</h3>
+                                <span class="text-electric-yellow font-bold" data-bind="product.basePrice">Rp 15M+</span>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">Excellent Condition:</span>
+                                    <span class="text-electric-yellow font-semibold" data-bind="product.excellentPrice">Rp 17,500,000</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">Good Condition:</span>
+                                    <span class="text-electric-yellow font-semibold" data-bind="product.goodPrice">Rp 15,800,000</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">Fair Condition:</span>
+                                    <span class="text-electric-yellow font-semibold" data-bind="product.fairPrice">Rp 13,200,000</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-electric-yellow text-black py-3 rounded-xl font-semibold mt-4 hover:glow-yellow-strong transition-all duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+
+                        <div class="bg-charcoal rounded-2xl p-6 border border-electric-yellow/20 cursor-pointer card-hover" onclick="showPricingModal('iphone-14-pro')">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-bold" data-bind="product.model">iPhone 14 Pro</h3>
+                                <span class="text-electric-yellow font-bold" data-bind="product.basePrice">Rp 13M+</span>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">Excellent Condition:</span>
+                                    <span class="text-electric-yellow font-semibold" data-bind="product.excellentPrice">Rp 15,200,000</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">Good Condition:</span>
+                                    <span class="text-electric-yellow font-semibold" data-bind="product.goodPrice">Rp 13,500,000</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">Fair Condition:</span>
+                                    <span class="text-electric-yellow font-semibold" data-bind="product.fairPrice">Rp 11,800,000</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-electric-yellow text-black py-3 rounded-xl font-semibold mt-4 hover:glow-yellow-strong transition-all duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+
+                        <div class="bg-charcoal rounded-2xl p-6 border border-electric-yellow/20 cursor-pointer card-hover" onclick="showPricingModal('iphone-13-pro-max')">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-bold" data-bind="product.model">iPhone 13 Pro Max</h3>
+                                <span class="text-electric-yellow font-bold" data-bind="product.basePrice">Rp 11M+</span>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">Excellent Condition:</span>
+                                    <span class="text-electric-yellow font-semibold" data-bind="product.excellentPrice">Rp 13,200,000</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">Good Condition:</span>
+                                    <span class="text-electric-yellow font-semibold" data-bind="product.goodPrice">Rp 11,800,000</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-400">Fair Condition:</span>
+                                    <span class="text-electric-yellow font-semibold" data-bind="product.fairPrice">Rp 9,500,000</span>
+                                </div>
+                            </div>
+                            <button class="w-full bg-electric-yellow text-black py-3 rounded-xl font-semibold mt-4 hover:glow-yellow-strong transition-all duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                        <!-- @END_MAP )) -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SellPage -->
+
+    <!-- @COMPONENT: ContactPage -->
+    <section id="contact" class="section-content hidden">
+        <div class="gradient-dark min-h-screen py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl font-bold mb-4">
+                        Contact <span class="text-electric-yellow">Us</span>
+                    </h1>
+                    <p class="text-xl text-gray-300">Get in touch with our team</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="space-y-8">
+                        <div class="bg-charcoal rounded-2xl p-8 border border-electric-yellow/20">
+                            <h3 class="text-2xl font-bold mb-6 text-electric-yellow">Get In Touch</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-phone text-electric-yellow text-xl"></i>
+                                    <div>
+                                        <div class="font-semibold">Phone</div>
+                                        <div class="text-gray-400">+62 821-xxxx-xxxx</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-envelope text-electric-yellow text-xl"></i>
+                                    <div>
+                                        <div class="font-semibold">Email</div>
+                                        <div class="text-gray-400">hello@mikeyapplestuff.com</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-map-marker-alt text-electric-yellow text-xl"></i>
+                                    <div>
+                                        <div class="font-semibold">Locations</div>
+                                        <div class="text-gray-400">Jakarta, Surabaya, Bandung, Malang</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-charcoal rounded-2xl p-8 border border-electric-yellow/20">
+                            <h3 class="text-2xl font-bold mb-6 text-electric-yellow">Follow Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-electric-yellow text-black p-3 rounded-lg hover:glow-yellow-strong transition-all duration-300">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="#" class="bg-electric-yellow text-black p-3 rounded-lg hover:glow-yellow-strong transition-all duration-300">
+                                    <i class="fab fa-whatsapp text-xl"></i>
+                                </a>
+                                <a href="#" class="bg-electric-yellow text-black p-3 rounded-lg hover:glow-yellow-strong transition-all duration-300">
+                                    <i class="fab fa-telegram text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-charcoal rounded-2xl p-8 border border-electric-yellow/20">
+                        <h3 class="text-2xl font-bold mb-6 text-electric-yellow">Send Message</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <input type="text" placeholder="Your Name" class="w-full bg-dark-gray border border-electric-yellow/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric-yellow transition-colors">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" class="w-full bg-dark-gray border border-electric-yellow/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric-yellow transition-colors">
+                            </div>
+                            <div>
+                                <select class="w-full bg-dark-gray border border-electric-yellow/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric-yellow transition-colors">
+                                    <option>Select Subject</option>
+                                    <option>Buy Inquiry</option>
+                                    <option>Sell Inquiry</option>
+                                    <option>General Question</option>
+                                    <option>Technical Support</option>
+                                </select>
+                            </div>
+                            <div>
+                                <textarea rows="5" placeholder="Your Message" class="w-full bg-dark-gray border border-electric-yellow/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric-yellow transition-colors resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-electric-yellow text-black py-3 rounded-xl font-semibold hover:glow-yellow-strong transition-all duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactPage -->
+
+    <!-- @COMPONENT: PricingModal -->
+    <div id="pricing-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-charcoal rounded-2xl p-8 max-w-lg w-full border border-electric-yellow/20 relative">
+            <button onclick="closePricingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold mb-2" id="modal-product-title">iPhone 14 Pro Max</h3>
+                <p class="text-gray-400">Select condition and storage to get your quote</p>
+            </div>
+
+            <div class="space-y-4 mb-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Storage Capacity</label>
+                    <select class="w-full bg-dark-gray border border-electric-yellow/20 rounded-lg px-4 py-3 text-white">
+                        <option>128GB</option>
+                        <option>256GB</option>
+                        <option>512GB</option>
+                        <option>1TB</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Condition</label>
+                    <div class="space-y-3">
+                        <label class="flex items-center justify-between p-3 bg-dark-gray rounded-lg cursor-pointer border border-electric-yellow/20">
+                            <div class="flex items-center">
+                                <input type="radio" name="condition" value="excellent" class="mr-3">
+                                <div>
+                                    <div class="font-semibold">Excellent</div>
+                                    <div class="text-sm text-gray-400">Like new, no scratches</div>
+                                </div>
+                            </div>
+                            <span class="text-electric-yellow font-bold">Rp 17,500,000</span>
+                        </label>
+                        
+                        <label class="flex items-center justify-between p-3 bg-dark-gray rounded-lg cursor-pointer border border-electric-yellow/20">
+                            <div class="flex items-center">
+                                <input type="radio" name="condition" value="good" class="mr-3">
+                                <div>
+                                    <div class="font-semibold">Good</div>
+                                    <div class="text-sm text-gray-400">Minor wear, fully functional</div>
+                                </div>
+                            </div>
+                            <span class="text-electric-yellow font-bold">Rp 15,800,000</span>
+                        </label>
+                        
+                        <label class="flex items-center justify-between p-3 bg-dark-gray rounded-lg cursor-pointer border border-electric-yellow/20">
+                            <div class="flex items-center">
+                                <input type="radio" name="condition" value="fair" class="mr-3">
+                                <div>
+                                    <div class="font-semibold">Fair</div>
+                                    <div class="text-sm text-gray-400">Visible wear, works well</div>
+                                </div>
+                            </div>
+                            <span class="text-electric-yellow font-bold">Rp 13,200,000</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-electric-yellow/10 rounded-lg p-4 mb-6">
+                <div class="flex items-center justify-between">
+                    <span class="font-semibold">Estimated Quote:</span>
+                    <span class="text-2xl font-bold text-electric-yellow">Rp 17,500,000</span>
+                </div>
+                <p class="text-sm text-gray-400 mt-2">Final price subject to physical inspection</p>
+            </div>
+
+            <div class="flex gap-4">
+                <button onclick="closePricingModal()" class="flex-1 border border-electric-yellow text-electric-yellow py-3 rounded-xl font-semibold hover:bg-electric-yellow hover:text-black transition-all duration-300">
+                    Cancel
+                </button>
+                <button class="flex-1 bg-electric-yellow text-black py-3 rounded-xl font-semibold hover:glow-yellow-strong transition-all duration-300">
+                    <i class="fab fa-whatsapp mr-2"></i>Contact Us
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: PricingModal -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-black border-t border-electric-yellow/20 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fab fa-apple text-electric-yellow text-2xl"></i>
+                        <span class="text-xl font-bold">Mikey Applestuff</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your trusted marketplace for authentic Apple devices across Indonesia.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-electric-yellow hover:glow-yellow transition-all duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-electric-yellow hover:glow-yellow transition-all duration-300">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="#" class="text-electric-yellow hover:glow-yellow transition-all duration-300">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 text-electric-yellow">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-electric-yellow transition-colors" onclick="showSection('home')">Home</a></li>
+                        <li><a href="#buy" class="hover:text-electric-yellow transition-colors" onclick="showSection('buy')">Buy Products</a></li>
+                        <li><a href="#sell" class="hover:text-electric-yellow transition-colors" onclick="showSection('sell')">Sell Device</a></li>
+                        <li><a href="#contact" class="hover:text-electric-yellow transition-colors" onclick="showSection('contact')">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 text-electric-yellow">Locations</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-map-marker-alt text-electric-yellow mr-2"></i>Jakarta</li>
+                        <li><i class="fas fa-map-marker-alt text-electric-yellow mr-2"></i>Surabaya</li>
+                        <li><i class="fas fa-map-marker-alt text-electric-yellow mr-2"></i>Bandung</li>
+                        <li><i class="fas fa-map-marker-alt text-electric-yellow mr-2"></i>Malang</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4 text-electric-yellow">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-phone text-electric-yellow mr-2"></i>+62 821-xxxx-xxxx</li>
+                        <li><i class="fas fa-envelope text-electric-yellow mr-2"></i>hello@mikeyapplestuff.com</li>
+                        <li><i class="fas fa-clock text-electric-yellow mr-2"></i>24/7 Support</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-electric-yellow/20 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Mikey Applestuff. All rights reserved. | 100% Authentic Apple Products</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // TODO: Implement business logic, API calls, and state management
+        (function() {
+            // Navigation functionality
+            function showSection(sectionId) {
+                // Hide all sections
+                const sections = document.querySelectorAll('.section-content');
+                sections.forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // Show selected section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                }
+                
+                // Update nav links
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-electric-yellow');
+                    link.classList.add('text-white');
+                });
+                
+                // Highlight active nav link
+                const activeLink = document.querySelector(`[onclick="showSection('${sectionId}')"]`);
+                if (activeLink) {
+                    activeLink.classList.add('text-electric-yellow');
+                    activeLink.classList.remove('text-white');
+                }
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            }
+            
+            function toggleMobileMenu() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            }
+            
+            // City selection functionality
+            function selectCity(cityName) {
+                document.getElementById('selected-city').textContent = cityName.charAt(0).toUpperCase() + cityName.slice(1);
+                document.getElementById('product-catalog').classList.remove('hidden');
+                
+                // Load products for selected city
+                loadProductsForCity(cityName);
+                
+                // Scroll to catalog
+                document.getElementById('product-catalog').scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            function loadProductsForCity(city) {
+                const productsGrid = document.getElementById('products-grid');
+                // Mock product data - in real implementation, this would come from API
+                const mockProducts = [
+                    {
+                        name: 'iPhone 14 Pro Max',
+                        price: 'Rp 18,999,000',
+                        image: 'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300',
+                        condition: 'Like New',
+                        stock: 3
+                    },
+                    {
+                        name: 'MacBook Pro M2',
+                        price: 'Rp 24,999,000',
+                        image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300',
+                        condition: 'Excellent',
+                        stock: 2
+                    }
+                ];
+                
+                productsGrid.innerHTML = mockProducts.map(product => `
+                    <div class="bg-charcoal rounded-2xl overflow-hidden border border-electric-yellow/20 card-hover">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">${product.name}</h3>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-electric-yellow font-bold">${product.price}</span>
+                                <span class="bg-electric-yellow/20 text-electric-yellow px-2 py-1 rounded text-sm">${product.stock} left</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400 text-sm">Condition: ${product.condition}</span>
+                                <button class="bg-electric-yellow text-black px-4 py-2 rounded-lg font-semibold hover:glow-yellow-strong transition-all duration-300">
+                                    <i class="fas fa-shopping-cart mr-1"></i>Buy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // Sell page functionality
+            function showProductList(category) {
+                document.getElementById('sell-product-list').classList.remove('hidden');
+                document.getElementById('sell-product-list').scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Modal functionality
+            function showPricingModal(productId) {
+                document.getElementById('pricing-modal').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closePricingModal() {
+                document.getElementById('pricing-modal').classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Make functions globally accessible
+            window.showSection = showSection;
+            window.toggleMobileMenu = toggleMobileMenu;
+            window.selectCity = selectCity;
+            window.showProductList = showProductList;
+            window.showPricingModal = showPricingModal;
+            window.closePricingModal = closePricingModal;
+            
+            // Initialize the page
+            document.addEventListener('DOMContentLoaded', function() {
+                // Show home section by default
+                showSection('home');
+            });
+        })();
+    </script>
+</body>
+</html>

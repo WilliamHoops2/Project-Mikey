@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikey Applestuff - Premium Apple Products in Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-yellow': '#FFD700',
+                        'charcoal': '#333333',
+                        'soft-gray': '#F5F5F5'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #FFD700 0%, #FFF8DC 100%); }
+        .soft-shadow { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        .hover-lift { transition: all 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); }
+        .modal-backdrop { backdrop-filter: blur(5px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-charcoal font-inter">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-charcoal">
+                    <i class="fas fa-apple-alt text-warm-yellow mr-2"></i>
+                    Mikey Applestuff
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="nav-link text-charcoal hover:text-warm-yellow transition-colors duration-300">Home</a>
+                    <a href="#buy" class="nav-link text-charcoal hover:text-warm-yellow transition-colors duration-300">Buy</a>
+                    <a href="#sell" class="nav-link text-charcoal hover:text-warm-yellow transition-colors duration-300">Sell</a>
+                    <a href="#contact" class="nav-link text-charcoal hover:text-warm-yellow transition-colors duration-300">Contact</a>
+                </div>
+                <button class="md:hidden text-charcoal">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Homepage Section -->
+    <section id="home" class="page-section active">
+        <!-- Hero Section -->
+        <div class="gradient-bg py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold text-charcoal mb-6">
+                    Welcome to Mikey Applestuff
+                </h1>
+                <p class="text-xl md:text-2xl text-charcoal mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Your trusted partner for premium Apple products across Indonesia. We buy, sell, and trade authentic Apple devices with guaranteed quality and competitive prices.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button onclick="showSection('buy')" class="bg-charcoal text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors duration-300 hover-lift">
+                        <i class="fas fa-shopping-cart mr-2"></i>Buy Apple Products
+                    </button>
+                    <button onclick="showSection('sell')" class="bg-white text-charcoal border-2 border-charcoal px-8 py-4 rounded-lg font-semibold hover:bg-charcoal hover:text-white transition-colors duration-300 hover-lift">
+                        <i class="fas fa-dollar-sign mr-2"></i>Sell Your Device
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-charcoal mb-12">Why Choose Mikey Applestuff?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 rounded-lg bg-soft-gray soft-shadow hover-lift">
+                        <div class="text-warm-yellow text-4xl mb-4">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">100% Authentic</h3>
+                        <p class="text-gray-600">All products are genuine Apple devices with verified serial numbers and warranties.</p>
+                    </div>
+                    <div class="text-center p-6 rounded-lg bg-soft-gray soft-shadow hover-lift">
+                        <div class="text-warm-yellow text-4xl mb-4">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Multiple Locations</h3>
+                        <p class="text-gray-600">Serving Jakarta, Surabaya, Bandung, and Malang with local pickup options.</p>
+                    </div>
+                    <div class="text-center p-6 rounded-lg bg-soft-gray soft-shadow hover-lift">
+                        <div class="text-warm-yellow text-4xl mb-4">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Fair Prices</h3>
+                        <p class="text-gray-600">Competitive buying and selling prices with transparent market valuations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="py-16 bg-soft-gray">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-charcoal mb-12">Featured Apple Products</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <!-- iPhone 15 Pro -->
+                    <div class="bg-white rounded-lg p-6 soft-shadow hover-lift cursor-pointer" onclick="showProductModal('iPhone 15 Pro', 'Rp 18,500,000 - Rp 22,000,000', 'Jakarta, Surabaya')">
+                        <!-- Modern iPhone 15 Pro in natural titanium color -->
+                        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" alt="iPhone 15 Pro" class="w-full h-48 object-contain rounded-lg mb-4">
+                        <h3 class="font-semibold text-lg mb-2">iPhone 15 Pro</h3>
+                        <p class="text-gray-600 text-sm mb-2">Latest flagship with titanium design</p>
+                        <p class="text-warm-yellow font-semibold">From Rp 18,500,000</p>
+                    </div>
+
+                    <!-- MacBook Air M2 -->
+                    <div class="bg-white rounded-lg p-6 soft-shadow hover-lift cursor-pointer" onclick="showProductModal('MacBook Air M2', 'Rp 16,500,000 - Rp 21,000,000', 'All Cities')">
+                        <!-- MacBook Air M2 in midnight blue showing the sleek design -->
+                        <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" alt="MacBook Air M2" class="w-full h-48 object-contain rounded-lg mb-4">
+                        <h3 class="font-semibold text-lg mb-2">MacBook Air M2</h3>
+                        <p class="text-gray-600 text-sm mb-2">Ultra-thin with M2 chip performance</p>
+                        <p class="text-warm-yellow font-semibold">From Rp 16,500,000</p>
+                    </div>
+
+                    <!-- iPad Pro -->
+                    <div class="bg-white rounded-lg p-6 soft-shadow hover-lift cursor-pointer" onclick="showProductModal('iPad Pro 12.9', 'Rp 14,500,000 - Rp 19,500,000', 'Jakarta, Bandung')">
+                        <!-- iPad Pro 12.9 with Apple Pencil showing productivity setup -->
+                        <img src="https://images.unsplash.com/photo-1587033411391-5d9e51cce126?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" alt="iPad Pro" class="w-full h-48 object-contain rounded-lg mb-4">
+                        <h3 class="font-semibold text-lg mb-2">iPad Pro 12.9"</h3>
+                        <p class="text-gray-600 text-sm mb-2">Professional tablet with M2 chip</p>
+                        <p class="text-warm-yellow font-semibold">From Rp 14,500,000</p>
+                    </div>
+
+                    <!-- AirPods Pro -->
+                    <div class="bg-white rounded-lg p-6 soft-shadow hover-lift cursor-pointer" onclick="showProductModal('AirPods Pro 2nd Gen', 'Rp 3,200,000 - Rp 3,800,000', 'All Cities')">
+                        <!-- AirPods Pro 2nd generation with case showing the new design -->
+                        <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300" alt="AirPods Pro" class="w-full h-48 object-contain rounded-lg mb-4">
+                        <h3 class="font-semibold text-lg mb-2">AirPods Pro 2nd Gen</h3>
+                        <p class="text-gray-600 text-sm mb-2">Advanced noise cancellation</p>
+                        <p class="text-warm-yellow font-semibold">From Rp 3,200,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buy Section -->
+    <section id="buy" class="page-section hidden">
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-6">Buy Apple Products</h1>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Choose your city to see available products and local pickup locations</p>
+                </div>
+
+                <!-- City Selection -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div class="city-card bg-soft-gray rounded-lg p-6 cursor-pointer hover-lift text-center soft-shadow" onclick="showCityProducts('jakarta')">
+                        <!-- Jakarta skyline with modern buildings and Monas monument -->
+                        <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Jakarta skyline" class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Jakarta</h3>
+                        <p class="text-gray-600 text-sm">Capital city with largest inventory</p>
+                        <p class="text-warm-yellow font-semibold mt-2">156 products available</p>
+                    </div>
+
+                    <div class="city-card bg-soft-gray rounded-lg p-6 cursor-pointer hover-lift text-center soft-shadow" onclick="showCityProducts('surabaya')">
+                        <!-- Surabaya cityscape with Suramadu Bridge in background -->
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Surabaya cityscape" class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Surabaya</h3>
+                        <p class="text-gray-600 text-sm">East Java's largest city</p>
+                        <p class="text-warm-yellow font-semibold mt-2">87 products available</p>
+                    </div>
+
+                    <div class="city-card bg-soft-gray rounded-lg p-6 cursor-pointer hover-lift text-center soft-shadow" onclick="showCityProducts('bandung')">
+                        <!-- Bandung city with mountains in background and cool weather atmosphere -->
+                        <img src="https://pixabay.com/get/g29b498d6986c0d13aa57b79db198385337118d6feba0ddc6518708edccd65415d48df55c5af8652e1b9d5ed7193457a7e057a735227371bc312ebc2c1945cad6_1280.jpg" alt="Bandung cityscape" class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Bandung</h3>
+                        <p class="text-gray-600 text-sm">Cool mountain city</p>
+                        <p class="text-warm-yellow font-semibold mt-2">92 products available</p>
+                    </div>
+
+                    <div class="city-card bg-soft-gray rounded-lg p-6 cursor-pointer hover-lift text-center soft-shadow" onclick="showCityProducts('malang')">
+                        <!-- Malang city view with surrounding green hills and traditional architecture -->
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Malang cityscape" class="w-full h-32 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Malang</h3>
+                        <p class="text-gray-600 text-sm">Student city with great deals</p>
+                        <p class="text-warm-yellow font-semibold mt-2">74 products available</p>
+                    </div>
+                </div>
+
+                <!-- City Products (Initially Hidden) -->
+                <div id="city-products" class="hidden">
+                    <div class="bg-warm-yellow bg-opacity-20 rounded-lg p-6 mb-8">
+                        <h2 class="text-2xl font-bold text-charcoal mb-4">Products in <span id="selected-city">Jakarta</span></h2>
+                        <p class="text-gray-700">All products come with warranty and authenticity guarantee. Click on any product for detailed pricing and location.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6" id="products-grid">
+                        <!-- Products will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sell Section -->
+    <section id="sell" class="page-section hidden">
+        <div class="py-20 bg-soft-gray">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold text-charcoal mb-6">Sell Your Apple Device</h1>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Get instant quotes for your Apple products. We offer competitive prices and quick transactions.</p>
+                </div>
+
+                <!-- Sell Categories -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white rounded-lg p-8 soft-shadow hover-lift">
+                        <div class="text-center">
+                            <div class="text-warm-yellow text-5xl mb-4">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">iPhones</h3>
+                            <p class="text-gray-600 mb-6">All iPhone models from iPhone 8 to iPhone 15 Pro Max</p>
+                            <button onclick="showSellCategory('iphone')" class="bg-warm-yellow text-charcoal px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-8 soft-shadow hover-lift">
+                        <div class="text-center">
+                            <div class="text-warm-yellow text-5xl mb-4">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">MacBooks</h3>
+                            <p class="text-gray-600 mb-6">MacBook Air, MacBook Pro, and iMac computers</p>
+                            <button onclick="showSellCategory('macbook')" class="bg-warm-yellow text-charcoal px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-8 soft-shadow hover-lift">
+                        <div class="text-center">
+                            <div class="text-warm-yellow text-5xl mb-4">
+                                <i class="fas fa-tablet-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">iPads & More</h3>
+                            <p class="text-gray-600 mb-6">iPad, Apple Watch, AirPods, and other accessories</p>
+                            <button onclick="showSellCategory('ipad')" class="bg-warm-yellow text-charcoal px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sell Process -->
+                <div class="bg-white rounded-lg p-8 soft-shadow">
+                    <h2 class="text-2xl font-bold text-center text-charcoal mb-8">How It Works</h2>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="bg-warm-yellow w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-charcoal font-bold text-xl">1</span>
+                            </div>
+                            <h4 class="font-semibold mb-2">Select Device</h4>
+                            <p class="text-gray-600 text-sm">Choose your Apple product from our comprehensive list</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-warm-yellow w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-charcoal font-bold text-xl">2</span>
+                            </div>
+                            <h4 class="font-semibold mb-2">Get Quote</h4>
+                            <p class="text-gray-600 text-sm">Receive instant pricing based on condition and specs</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-warm-yellow w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-charcoal font-bold text-xl">3</span>
+                            </div>
+                            <h4 class="font-semibold mb-2">Schedule Pickup</h4>
+                            <p class="text-gray-600 text-sm">Arrange convenient pickup or drop-off location</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-warm-yellow w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-charcoal font-bold text-xl">4</span>
+                            </div>
+                            <h4 class="font-semibold mb-2">Get Paid</h4>
+                            <p class="text-gray-600 text-sm">Receive payment immediately after device inspection</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="text-xl font-bold mb-2">
+                        <i class="fas fa-apple-alt text-warm-yellow mr-2"></i>
+                        Mikey Applestuff
+                    </div>
+                    <p class="text-gray-300 text-sm">Premium Apple products across Indonesia</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-300 hover:text-warm-yellow transition-colors duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-warm-yellow transition-colors duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-warm-yellow transition-colors duration-300">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="mailto:info@mikeyapplestuff.com" class="text-gray-300 hover:text-warm-yellow transition-colors duration-300">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-6 pt-6 border-t border-gray-600 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 Mikey Applestuff. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full max-h-90vh overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-xl font-bold text-charcoal"></h3>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-charcoal transition-colors duration-300">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="bg-soft-gray rounded-lg p-4 mb-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-600">Price Range:</span>
+                            <span id="modal-price" class="font-semibold text-warm-yellow"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <span class="text-gray-600 block mb-2">Available Locations:</span>
+                        <div class="flex items-center text-charcoal">
+                            <i class="fas fa-map-marker-alt text-warm-yellow mr-2"></i>
+                            <span id="modal-locations"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-3">
+                    <button class="flex-1 bg-warm-yellow text-charcoal py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">
+                        <i class="fas fa-phone mr-2"></i>Call Now
+                    </button>
+                    <button class="flex-1 bg-charcoal text-white py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors duration-300">
+                        <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation and section management
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.remove('hidden');
+                selectedSection.classList.add('active');
+            }
+
+            // Update nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-warm-yellow');
+                link.classList.add('text-charcoal');
+            });
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // City products data
+        const cityProducts = {
+            jakarta: [
+                { name: 'iPhone 15 Pro Max', image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 22,500,000', location: 'Senayan City Mall' },
+                { name: 'MacBook Pro 16"', image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 35,000,000', location: 'Grand Indonesia' },
+                { name: 'iPad Air 5th Gen', image: 'https://images.unsplash.com/photo-1587033411391-5d9e51cce126?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 8,500,000', location: 'Plaza Indonesia' },
+                { name: 'Apple Watch Ultra', image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 11,500,000', location: 'Central Park Mall' },
+                { name: 'AirPods Max', image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 7,800,000', location: 'Kota Kasablanka' },
+                { name: 'iPhone 14 Plus', image: 'https://images.unsplash.com/photo-1678652988334-d477e0b3ef56?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 14,500,000', location: 'Mal Taman Anggrek' }
+            ],
+            surabaya: [
+                { name: 'iPhone 15', image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 15,500,000', location: 'Tunjungan Plaza' },
+                { name: 'MacBook Air M2', image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 18,500,000', location: 'Pakuwon Mall' },
+                { name: 'iPad Pro 11"', image: 'https://images.unsplash.com/photo-1587033411391-5d9e51cce126?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 12,500,000', location: 'Galaxy Mall' },
+                { name: 'Apple Watch Series 9', image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 5,800,000', location: 'Surabaya Town Square' }
+            ],
+            bandung: [
+                { name: 'iPhone 14', image: 'https://images.unsplash.com/photo-1678652988334-d477e0b3ef56?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 12,500,000', location: 'Trans Studio Mall' },
+                { name: 'MacBook Air M1', image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 14,500,000', location: 'Paris Van Java' },
+                { name: 'iPad 10th Gen', image: 'https://images.unsplash.com/photo-1587033411391-5d9e51cce126?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 6,200,000', location: 'Cihampelas Walk' },
+                { name: 'AirPods Pro 2', image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 3,500,000', location: 'Bandung Indah Plaza' }
+            ],
+            malang: [
+                { name: 'iPhone 13', image: 'https://images.unsplash.com/photo-1678652988334-d477e0b3ef56?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 9,800,000', location: 'Malang Town Square' },
+                { name: 'MacBook Air 13"', image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 12,500,000', location: 'Dieng Plaza' },
+                { name: 'iPad Mini 6', image: 'https://images.unsplash.com/photo-1587033411391-5d9e51cce126?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 7,500,000', location: 'Sarinah Plaza' },
+                { name: 'Apple Watch SE', image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300', price: 'Rp 3,800,000', location: 'Matos Mall' }
+            ]
+        };
+
+        function showCityProducts(city) {
+            const cityName = city.charAt(0).toUpperCase() + city.slice(1);
+            document.getElementById('selected-city').textContent = cityName;
+            document.getElementById('city-products').classList.remove('hidden');
+            
+            const productsGrid = document.getElementById('products-grid');
+            const products = cityProducts[city] || [];
+            
+            productsGrid.innerHTML = products.map(product => `
+                <div class="bg-white rounded-lg p-4 soft-shadow hover-lift cursor-pointer" onclick="showProductModal('${product.name}', '${product.price}', '${product.location}')">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-40 object-contain rounded-lg mb-3">
+                    <h3 class="font-semibold text-lg mb-2">${product.name}</h3>
+                    <p class="text-warm-yellow font-semibold mb-2">${product.price}</p>
+                    <p class="text-gray-600 text-sm">
+                        <i class="fas fa-map-marker-alt mr-1"></i>
+                        ${product.location}
+                    </p>
+                </div>
+            `).join('');
+            
+            // Scroll to products section smoothly
+            document.getElementById('city-products').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showProductModal(name, price, location) {
+            document.getElementById('modal-title').textContent = name;
+            document.getElementById('modal-price').textContent = price;
+            document.getElementById('modal-locations').textContent = location;
+            document.getElementById('product-modal').classList.remove('hidden');
+            
+            // Prevent body scrolling when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showSellCategory(category) {
+            // TODO: Implement sell category functionality
+            alert(`Sell ${category} functionality will be implemented here`);
+        }
+
+        // Navigation event listeners
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetSection = e.target.getAttribute('href').substring(1);
+                showSection(targetSection);
+            });
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('product-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'product-modal') {
+                closeModal();
+            }
+        });
+
+        // Initialize with home section
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>

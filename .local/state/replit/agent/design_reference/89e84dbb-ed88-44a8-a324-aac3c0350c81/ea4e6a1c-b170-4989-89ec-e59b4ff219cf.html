@@ -1,0 +1,652 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikey Applestuff - Premium Apple Products Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mikey-black': '#0A0A0A',
+                        'mikey-yellow': '#FFD700',
+                        'mikey-gray': '#2A2A2A',
+                        'mikey-light': '#FAFAFA'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-yellow {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+        .modal-backdrop {
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-mikey-black text-mikey-light font-inter">
+
+    <!-- @COMPONENT: Navigation -->
+    <nav class="fixed top-0 w-full bg-mikey-black/95 backdrop-blur-lg z-50 border-b border-mikey-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-mikey-yellow">🍎 Mikey Applestuff</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-mikey-light hover:text-mikey-yellow transition-colors duration-300 px-3 py-2">Home</a>
+                        <a href="#buy" class="nav-link text-mikey-light hover:text-mikey-yellow transition-colors duration-300 px-3 py-2">Buy</a>
+                        <a href="#sell" class="nav-link text-mikey-light hover:text-mikey-yellow transition-colors duration-300 px-3 py-2">Sell</a>
+                        <a href="#contact" class="nav-link text-mikey-light hover:text-mikey-yellow transition-colors duration-300 px-3 py-2">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-mikey-light hover:text-mikey-yellow">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-mikey-gray">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="nav-link block px-3 py-2 text-mikey-light hover:text-mikey-yellow">Home</a>
+                <a href="#buy" class="nav-link block px-3 py-2 text-mikey-light hover:text-mikey-yellow">Buy</a>
+                <a href="#sell" class="nav-link block px-3 py-2 text-mikey-light hover:text-mikey-yellow">Sell</a>
+                <a href="#contact" class="nav-link block px-3 py-2 text-mikey-light hover:text-mikey-yellow">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <div id="app-content">
+        
+        <!-- @COMPONENT: HomePage -->
+        <section id="home" class="page-section active min-h-screen pt-20">
+            <!-- Hero Section -->
+            <div class="relative overflow-hidden">
+                <!-- Indonesian landmark background - Jakarta skyline -->
+                <div class="absolute inset-0 z-0">
+                    <img src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080" alt="Jakarta skyline" class="w-full h-full object-cover opacity-20" data-mock="true">
+                    <div class="absolute inset-0 bg-gradient-to-r from-mikey-black via-mikey-black/80 to-transparent"></div>
+                </div>
+                
+                <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h1 class="text-5xl lg:text-7xl font-bold mb-6">
+                                <span class="text-mikey-light">Premium</span>
+                                <span class="text-mikey-yellow block">Apple Products</span>
+                                <span class="text-mikey-light text-3xl lg:text-4xl font-light">in Indonesia</span>
+                            </h1>
+                            <p class="text-xl text-gray-300 mb-8 leading-relaxed">Buy and sell authentic Apple products across major Indonesian cities. Trusted, verified, and always genuine.</p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button class="buy-button bg-mikey-yellow text-mikey-black px-8 py-4 rounded-xl font-semibold text-lg hover:bg-yellow-400 transition-all duration-300 hover-lift">
+                                    <i class="fas fa-shopping-cart mr-2"></i>Start Buying
+                                </button>
+                                <button class="sell-button border-2 border-mikey-yellow text-mikey-yellow px-8 py-4 rounded-xl font-semibold text-lg hover:bg-mikey-yellow hover:text-mikey-black transition-all duration-300">
+                                    <i class="fas fa-tag mr-2"></i>Sell Your Device
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="relative">
+                            <!-- Apple products showcase image -->
+                            <img src="https://pixabay.com/get/g18a5c7409827f8723aa3873c2401c20421c42047c4e36d27033b4fd6ed81d8fe18d3d038077b02185aa1c56994966b6256d98d344ccf98b804e184d9883fbbb6_1280.jpg" alt="Apple products display" class="rounded-2xl shadow-2xl hover-lift" data-mock="true">
+                            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-mikey-yellow rounded-full flex items-center justify-center">
+                                <i class="fas fa-apple-alt text-4xl text-mikey-black"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="py-20 bg-mikey-gray">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold text-mikey-light mb-4">Why Choose Mikey Applestuff?</h2>
+                        <p class="text-xl text-gray-300">Your trusted partner for Apple products in Indonesia</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="feature-card bg-mikey-black/50 p-8 rounded-xl hover-lift">
+                            <div class="w-16 h-16 bg-mikey-yellow rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-shield-alt text-2xl text-mikey-black"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-4 text-mikey-light">100% Authentic</h3>
+                            <p class="text-gray-300">All products are verified authentic Apple devices with full warranty and documentation.</p>
+                        </div>
+                        
+                        <div class="feature-card bg-mikey-black/50 p-8 rounded-xl hover-lift">
+                            <div class="w-16 h-16 bg-mikey-yellow rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-map-marker-alt text-2xl text-mikey-black"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-4 text-mikey-light">4 Major Cities</h3>
+                            <p class="text-gray-300">Available in Jakarta, Surabaya, Bandung, and Malang with local pickup locations.</p>
+                        </div>
+                        
+                        <div class="feature-card bg-mikey-black/50 p-8 rounded-xl hover-lift">
+                            <div class="w-16 h-16 bg-mikey-yellow rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-handshake text-2xl text-mikey-black"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold mb-4 text-mikey-light">Fair Pricing</h3>
+                            <p class="text-gray-300">Competitive prices for buying and selling with transparent market valuations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: HomePage -->
+
+        <!-- @COMPONENT: BuyPage -->
+        <section id="buy" class="page-section hidden min-h-screen pt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl font-bold text-mikey-light mb-4">Buy Apple Products</h1>
+                    <p class="text-xl text-gray-300">Choose your city to browse available products</p>
+                </div>
+
+                <!-- City Selection -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div class="city-card cursor-pointer bg-mikey-gray rounded-xl overflow-hidden hover-lift" data-city="jakarta">
+                        <!-- Jakarta landmark -->
+                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Jakarta National Monument" class="w-full h-48 object-cover" data-mock="true">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-mikey-light mb-2">Jakarta</h3>
+                            <p class="text-gray-300 mb-4">Capital city with largest inventory</p>
+                            <div class="flex items-center text-mikey-yellow">
+                                <span class="font-semibold" data-bind="jakarta.productCount">156 products</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="city-card cursor-pointer bg-mikey-gray rounded-xl overflow-hidden hover-lift" data-city="surabaya">
+                        <!-- Surabaya landmark -->
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Surabaya skyline" class="w-full h-48 object-cover" data-mock="true">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-mikey-light mb-2">Surabaya</h3>
+                            <p class="text-gray-300 mb-4">East Java's technology hub</p>
+                            <div class="flex items-center text-mikey-yellow">
+                                <span class="font-semibold" data-bind="surabaya.productCount">89 products</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="city-card cursor-pointer bg-mikey-gray rounded-xl overflow-hidden hover-lift" data-city="bandung">
+                        <!-- Bandung landmark -->
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Bandung cityscape" class="w-full h-48 object-cover" data-mock="true">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-mikey-light mb-2">Bandung</h3>
+                            <p class="text-gray-300 mb-4">Creative city with tech culture</p>
+                            <div class="flex items-center text-mikey-yellow">
+                                <span class="font-semibold" data-bind="bandung.productCount">72 products</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="city-card cursor-pointer bg-mikey-gray rounded-xl overflow-hidden hover-lift" data-city="malang">
+                        <!-- Malang landmark -->
+                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Malang city view" class="w-full h-48 object-cover" data-mock="true">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-mikey-light mb-2">Malang</h3>
+                            <p class="text-gray-300 mb-4">University town with demand</p>
+                            <div class="flex items-center text-mikey-yellow">
+                                <span class="font-semibold" data-bind="malang.productCount">43 products</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Catalog (Initially Hidden) -->
+                <div id="product-catalog" class="hidden">
+                    <div class="flex items-center justify-between mb-8">
+                        <div>
+                            <h2 class="text-3xl font-bold text-mikey-light">Available in <span id="selected-city-name" class="text-mikey-yellow">Jakarta</span></h2>
+                            <p class="text-gray-300 mt-2">Click on any product for details and location</p>
+                        </div>
+                        <button id="back-to-cities" class="px-6 py-3 border border-mikey-yellow text-mikey-yellow rounded-lg hover:bg-mikey-yellow hover:text-mikey-black transition-all duration-300">
+                            <i class="fas fa-arrow-left mr-2"></i>Back to Cities
+                        </button>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="products-grid">
+                        <!-- Products will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: BuyPage -->
+
+        <!-- @COMPONENT: SellPage -->
+        <section id="sell" class="page-section hidden min-h-screen pt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl font-bold text-mikey-light mb-4">Sell Your Apple Device</h1>
+                    <p class="text-xl text-gray-300">Get the best price for your Apple products</p>
+                </div>
+
+                <!-- Modern electronics store showcase -->
+                <div class="mb-12">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400" alt="Modern electronics store interior" class="w-full h-64 object-cover rounded-2xl" data-mock="true">
+                </div>
+
+                <!-- Product Categories -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- iPhone Category -->
+                    <div class="product-category bg-mikey-gray rounded-xl p-6 hover-lift cursor-pointer" data-category="iphone">
+                        <!-- iPhone showcase image -->
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="iPhone collection" class="w-full h-40 object-cover rounded-lg mb-4" data-mock="true">
+                        <h3 class="text-2xl font-semibold text-mikey-light mb-2">iPhone</h3>
+                        <p class="text-gray-300 mb-4">All iPhone models from 12 to 15 Pro Max</p>
+                        <div class="text-mikey-yellow font-semibold">8 models available</div>
+                    </div>
+
+                    <!-- iPad Category -->
+                    <div class="product-category bg-mikey-gray rounded-xl p-6 hover-lift cursor-pointer" data-category="ipad">
+                        <!-- iPad showcase image -->
+                        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="iPad collection" class="w-full h-40 object-cover rounded-lg mb-4" data-mock="true">
+                        <h3 class="text-2xl font-semibold text-mikey-light mb-2">iPad</h3>
+                        <p class="text-gray-300 mb-4">iPad Air, Pro, and standard models</p>
+                        <div class="text-mikey-yellow font-semibold">6 models available</div>
+                    </div>
+
+                    <!-- MacBook Category -->
+                    <div class="product-category bg-mikey-gray rounded-xl p-6 hover-lift cursor-pointer" data-category="macbook">
+                        <!-- MacBook showcase image -->
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="MacBook collection" class="w-full h-40 object-cover rounded-lg mb-4" data-mock="true">
+                        <h3 class="text-2xl font-semibold text-mikey-light mb-2">MacBook</h3>
+                        <p class="text-gray-300 mb-4">Air and Pro models with M1/M2 chips</p>
+                        <div class="text-mikey-yellow font-semibold">5 models available</div>
+                    </div>
+
+                    <!-- Accessories Category -->
+                    <div class="product-category bg-mikey-gray rounded-xl p-6 hover-lift cursor-pointer" data-category="accessories">
+                        <!-- Apple accessories showcase image -->
+                        <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Apple accessories" class="w-full h-40 object-cover rounded-lg mb-4" data-mock="true">
+                        <h3 class="text-2xl font-semibold text-mikey-light mb-2">Accessories</h3>
+                        <p class="text-gray-300 mb-4">AirPods, Watch, and more</p>
+                        <div class="text-mikey-yellow font-semibold">12 items available</div>
+                    </div>
+                </div>
+
+                <!-- Sell Product Details (Initially Hidden) -->
+                <div id="sell-details" class="hidden mt-12">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-3xl font-bold text-mikey-light">Select Your <span id="selected-category-name" class="text-mikey-yellow">iPhone</span> Model</h2>
+                        <button id="back-to-categories" class="px-6 py-3 border border-mikey-yellow text-mikey-yellow rounded-lg hover:bg-mikey-yellow hover:text-mikey-black transition-all duration-300">
+                            <i class="fas fa-arrow-left mr-2"></i>Back to Categories
+                        </button>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="sell-products-grid">
+                        <!-- Sell products will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: SellPage -->
+
+    </div>
+
+    <!-- @COMPONENT: ProductModal -->
+    <div id="product-modal" class="fixed inset-0 bg-black/80 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-mikey-gray rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 id="modal-title" class="text-3xl font-bold text-mikey-light">iPhone 15 Pro Max</h2>
+                    <button id="close-modal" class="text-gray-400 hover:text-mikey-yellow text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <img id="modal-image" src="" alt="" class="w-full h-64 object-cover rounded-xl" data-mock="true">
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-mikey-yellow mb-2">Price Range</h3>
+                            <p id="modal-price" class="text-2xl font-bold text-mikey-light">Rp 18,000,000 - Rp 22,000,000</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-mikey-yellow mb-2">Available Storage</h3>
+                            <div id="modal-storage" class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-mikey-black rounded-full text-sm">128GB</span>
+                                <span class="px-3 py-1 bg-mikey-black rounded-full text-sm">256GB</span>
+                                <span class="px-3 py-1 bg-mikey-black rounded-full text-sm">512GB</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-mikey-yellow mb-2">Pickup Location</h3>
+                            <p id="modal-location" class="text-mikey-light mb-4">Mall Taman Anggrek, Jakarta Barat</p>
+                            <!-- Google Maps placeholder -->
+                            <div class="bg-mikey-black rounded-lg h-32 flex items-center justify-center">
+                                <div class="text-center text-gray-400">
+                                    <i class="fas fa-map-marker-alt text-2xl mb-2"></i>
+                                    <p>Google Maps Integration</p>
+                                    <!-- TODO: Implement Google Maps API -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full bg-mikey-yellow text-mikey-black py-3 rounded-xl font-semibold text-lg hover:bg-yellow-400 transition-all duration-300">
+                            <i class="fas fa-phone mr-2"></i>Contact Seller
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: ProductModal -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-mikey-gray mt-20 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="text-3xl font-bold text-mikey-yellow mb-4">🍎 Mikey Applestuff</div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Your trusted partner for authentic Apple products in Indonesia. Buy and sell with confidence across major cities.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-mikey-black rounded-full flex items-center justify-center text-mikey-yellow hover:bg-mikey-yellow hover:text-mikey-black transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-mikey-black rounded-full flex items-center justify-center text-mikey-yellow hover:bg-mikey-yellow hover:text-mikey-black transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-mikey-black rounded-full flex items-center justify-center text-mikey-yellow hover:bg-mikey-yellow hover:text-mikey-black transition-all duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-mikey-black rounded-full flex items-center justify-center text-mikey-yellow hover:bg-mikey-yellow hover:text-mikey-black transition-all duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-mikey-light mb-4">Contact Us</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-phone w-5 mr-3 text-mikey-yellow"></i>
+                            <span data-bind="phone.jakarta">+62 21 1234 5678</span>
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-phone w-5 mr-3 text-mikey-yellow"></i>
+                            <span data-bind="phone.surabaya">+62 31 8765 4321</span>
+                        </div>
+                        <div class="flex items-center text-gray-300">
+                            <i class="fas fa-envelope w-5 mr-3 text-mikey-yellow"></i>
+                            <span data-bind="email">hello@mikeyapplestuff.id</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-mikey-light mb-4">Our Cities</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="hover:text-mikey-yellow transition-colors duration-300 cursor-pointer">Jakarta</li>
+                        <li class="hover:text-mikey-yellow transition-colors duration-300 cursor-pointer">Surabaya</li>
+                        <li class="hover:text-mikey-yellow transition-colors duration-300 cursor-pointer">Bandung</li>
+                        <li class="hover:text-mikey-yellow transition-colors duration-300 cursor-pointer">Malang</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-mikey-black mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Mikey Applestuff. All rights reserved. Made with ❤️ in Indonesia.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        (function() {
+            // Mock data for products
+            const mockProducts = {
+                jakarta: [
+                    { id: 1, name: 'iPhone 15 Pro Max', price: 'Rp 18,000,000 - Rp 22,000,000', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', location: 'Mall Taman Anggrek, Jakarta Barat', storage: ['128GB', '256GB', '512GB'] },
+                    { id: 2, name: 'MacBook Pro M3', price: 'Rp 24,000,000 - Rp 35,000,000', image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', location: 'Grand Indonesia Mall, Jakarta Pusat', storage: ['512GB', '1TB'] },
+                    { id: 3, name: 'iPad Pro 12.9"', price: 'Rp 15,000,000 - Rp 20,000,000', image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', location: 'Plaza Indonesia, Jakarta Pusat', storage: ['128GB', '256GB', '512GB', '1TB'] }
+                ],
+                surabaya: [
+                    { id: 4, name: 'iPhone 14 Pro', price: 'Rp 14,000,000 - Rp 18,000,000', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', location: 'Pakuwon Mall, Surabaya', storage: ['128GB', '256GB', '512GB'] },
+                    { id: 5, name: 'MacBook Air M2', price: 'Rp 18,000,000 - Rp 25,000,000', image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', location: 'Ciputra World Surabaya', storage: ['256GB', '512GB'] }
+                ],
+                bandung: [
+                    { id: 6, name: 'iPhone 13', price: 'Rp 11,000,000 - Rp 14,000,000', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', location: 'Paris Van Java Mall, Bandung', storage: ['128GB', '256GB'] },
+                    { id: 7, name: 'iPad Air', price: 'Rp 8,000,000 - Rp 12,000,000', image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', location: 'Cihampelas Walk, Bandung', storage: ['64GB', '256GB'] }
+                ],
+                malang: [
+                    { id: 8, name: 'iPhone 12', price: 'Rp 8,000,000 - Rp 11,000,000', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', location: 'Malang Town Square', storage: ['64GB', '128GB'] }
+                ]
+            };
+
+            const sellProducts = {
+                iphone: [
+                    { id: 1, name: 'iPhone 15 Pro Max', priceRange: 'Rp 16,000,000 - Rp 20,000,000', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { id: 2, name: 'iPhone 15 Pro', priceRange: 'Rp 14,000,000 - Rp 18,000,000', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { id: 3, name: 'iPhone 14 Pro Max', priceRange: 'Rp 12,000,000 - Rp 16,000,000', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { id: 4, name: 'iPhone 14 Pro', priceRange: 'Rp 10,000,000 - Rp 14,000,000', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' }
+                ],
+                ipad: [
+                    { id: 5, name: 'iPad Pro 12.9" M2', priceRange: 'Rp 13,000,000 - Rp 18,000,000', image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { id: 6, name: 'iPad Air M1', priceRange: 'Rp 7,000,000 - Rp 11,000,000', image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' }
+                ],
+                macbook: [
+                    { id: 7, name: 'MacBook Pro M3 Max', priceRange: 'Rp 22,000,000 - Rp 32,000,000', image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { id: 8, name: 'MacBook Air M2', priceRange: 'Rp 16,000,000 - Rp 23,000,000', image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' }
+                ],
+                accessories: [
+                    { id: 9, name: 'AirPods Pro 2nd Gen', priceRange: 'Rp 3,200,000 - Rp 3,800,000', image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { id: 10, name: 'Apple Watch Ultra 2', priceRange: 'Rp 11,000,000 - Rp 13,000,000', image: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' }
+                ]
+            };
+
+            // Navigation functionality
+            function showPage(pageId) {
+                document.querySelectorAll('.page-section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                document.getElementById(pageId).classList.remove('hidden');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('text-mikey-yellow');
+                    link.classList.add('text-mikey-light');
+                });
+                document.querySelector(`a[href="#${pageId}"]`).classList.add('text-mikey-yellow');
+                document.querySelector(`a[href="#${pageId}"]`).classList.remove('text-mikey-light');
+            }
+
+            // Navigation event listeners
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageId = link.getAttribute('href').substring(1);
+                    showPage(pageId);
+                });
+            });
+
+            // Home page CTA buttons
+            document.querySelector('.buy-button').addEventListener('click', () => showPage('buy'));
+            document.querySelector('.sell-button').addEventListener('click', () => showPage('sell'));
+
+            // Mobile menu toggle
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // City selection functionality
+            document.querySelectorAll('.city-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const city = card.getAttribute('data-city');
+                    showProducts(city);
+                });
+            });
+
+            function showProducts(city) {
+                const cityName = city.charAt(0).toUpperCase() + city.slice(1);
+                document.getElementById('selected-city-name').textContent = cityName;
+                document.getElementById('product-catalog').classList.remove('hidden');
+                
+                const productsGrid = document.getElementById('products-grid');
+                productsGrid.innerHTML = '';
+                
+                const products = mockProducts[city] || [];
+                products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card bg-mikey-gray rounded-xl overflow-hidden hover-lift cursor-pointer';
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover" data-mock="true">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-mikey-light mb-2">${product.name}</h3>
+                            <p class="text-mikey-yellow font-bold text-lg mb-4">${product.price}</p>
+                            <div class="flex items-center text-gray-300">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span class="text-sm">${product.location}</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    productCard.addEventListener('click', () => {
+                        showProductModal(product);
+                    });
+                    
+                    productsGrid.appendChild(productCard);
+                });
+                
+                // Scroll to products
+                document.getElementById('product-catalog').scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Back to cities
+            document.getElementById('back-to-cities').addEventListener('click', () => {
+                document.getElementById('product-catalog').classList.add('hidden');
+            });
+
+            // Product categories functionality
+            document.querySelectorAll('.product-category').forEach(category => {
+                category.addEventListener('click', () => {
+                    const categoryName = category.getAttribute('data-category');
+                    showSellProducts(categoryName);
+                });
+            });
+
+            function showSellProducts(category) {
+                const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
+                document.getElementById('selected-category-name').textContent = categoryDisplayName;
+                document.getElementById('sell-details').classList.remove('hidden');
+                
+                const sellProductsGrid = document.getElementById('sell-products-grid');
+                sellProductsGrid.innerHTML = '';
+                
+                const products = sellProducts[category] || [];
+                products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'sell-product-card bg-mikey-black/50 rounded-xl overflow-hidden hover-lift cursor-pointer';
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover" data-mock="true">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-mikey-light mb-2">${product.name}</h3>
+                            <p class="text-mikey-yellow font-bold text-lg mb-4">${product.priceRange}</p>
+                            <button class="w-full bg-mikey-yellow text-mikey-black py-2 rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                    `;
+                    
+                    productCard.addEventListener('click', () => {
+                        showSellModal(product);
+                    });
+                    
+                    sellProductsGrid.appendChild(productCard);
+                });
+                
+                // Scroll to sell details
+                document.getElementById('sell-details').scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Back to categories
+            document.getElementById('back-to-categories').addEventListener('click', () => {
+                document.getElementById('sell-details').classList.add('hidden');
+            });
+
+            // Modal functionality
+            function showProductModal(product) {
+                document.getElementById('modal-title').textContent = product.name;
+                document.getElementById('modal-image').src = product.image;
+                document.getElementById('modal-image').alt = product.name;
+                document.getElementById('modal-price').textContent = product.price;
+                document.getElementById('modal-location').textContent = product.location;
+                
+                const storageContainer = document.getElementById('modal-storage');
+                storageContainer.innerHTML = '';
+                product.storage.forEach(storage => {
+                    const span = document.createElement('span');
+                    span.className = 'px-3 py-1 bg-mikey-black rounded-full text-sm';
+                    span.textContent = storage;
+                    storageContainer.appendChild(span);
+                });
+                
+                document.getElementById('product-modal').classList.remove('hidden');
+            }
+
+            function showSellModal(product) {
+                document.getElementById('modal-title').textContent = product.name;
+                document.getElementById('modal-image').src = product.image;
+                document.getElementById('modal-image').alt = product.name;
+                document.getElementById('modal-price').textContent = product.priceRange;
+                document.getElementById('modal-location').textContent = 'Contact us for pickup location';
+                
+                const storageContainer = document.getElementById('modal-storage');
+                storageContainer.innerHTML = '<span class="px-3 py-1 bg-mikey-black rounded-full text-sm">All variants accepted</span>';
+                
+                document.getElementById('product-modal').classList.remove('hidden');
+            }
+
+            // Close modal
+            document.getElementById('close-modal').addEventListener('click', () => {
+                document.getElementById('product-modal').classList.add('hidden');
+            });
+
+            // Close modal when clicking backdrop
+            document.getElementById('product-modal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('product-modal')) {
+                    document.getElementById('product-modal').classList.add('hidden');
+                }
+            });
+
+            // TODO: Implement React Router for separate page navigation
+            // TODO: Implement Google Maps API integration for location display
+            // TODO: Implement real product data fetching from API
+            // TODO: Implement form submission for sell inquiries
+            // TODO: Implement phone call functionality
+            // TODO: Implement real-time product availability updates
+        })();
+    </script>
+
+</body>
+</html>

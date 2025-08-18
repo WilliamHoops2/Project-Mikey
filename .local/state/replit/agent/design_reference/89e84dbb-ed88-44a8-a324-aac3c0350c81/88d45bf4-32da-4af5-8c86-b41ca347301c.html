@@ -1,0 +1,604 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikey Applestuff - Premium Apple Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-gray': '#F5F5F7',
+                        'apple-dark': '#1D1D1F',
+                        'apple-secondary': '#86868B'
+                    },
+                    fontFamily: {
+                        'system': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="font-system bg-white text-apple-dark">
+    <!-- @COMPONENT: Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <i class="fab fa-apple text-2xl text-apple-dark"></i>
+                    <span class="text-xl font-semibold text-apple-dark">Mikey Applestuff</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-apple-dark hover:text-apple-blue transition-colors duration-200">Home</a>
+                    <a href="#buy" class="text-apple-dark hover:text-apple-blue transition-colors duration-200">Buy</a>
+                    <a href="#sell" class="text-apple-dark hover:text-apple-blue transition-colors duration-200">Sell</a>
+                    <a href="#contact" class="text-apple-dark hover:text-apple-blue transition-colors duration-200">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-gray-200">
+                    <a href="#home" class="block px-3 py-2 text-apple-dark hover:text-apple-blue">Home</a>
+                    <a href="#buy" class="block px-3 py-2 text-apple-dark hover:text-apple-blue">Buy</a>
+                    <a href="#sell" class="block px-3 py-2 text-apple-dark hover:text-apple-blue">Sell</a>
+                    <a href="#contact" class="block px-3 py-2 text-apple-dark hover:text-apple-blue">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section id="home" class="py-20 bg-gradient-to-b from-apple-gray to-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-apple-dark mb-6">
+                Premium Apple Products
+                <span class="block text-apple-blue">Made Simple</span>
+            </h1>
+            <p class="text-xl text-apple-secondary mb-12 max-w-3xl mx-auto">
+                Buy and sell authentic Apple products across Indonesia. From the latest iPhones to MacBooks, 
+                we connect you with premium technology at the best prices.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <button class="bg-apple-blue text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-200 transform hover:scale-105">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    Start Buying
+                </button>
+                <button class="border-2 border-apple-blue text-apple-blue px-8 py-4 rounded-xl font-semibold hover:bg-apple-blue hover:text-white transition-all duration-200">
+                    <i class="fas fa-money-bill-wave mr-2"></i>
+                    Sell Your Device
+                </button>
+            </div>
+            
+            <!-- Hero Image Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <!-- Apple products showcase images -->
+                <!-- Modern iPhone display with sleek design -->
+                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="iPhone showcase" class="rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                
+                <!-- MacBook Pro on minimalist desk setup -->
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="MacBook Pro" class="rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                
+                <!-- Apple Watch with sport band on white background -->
+                <img src="https://images.unsplash.com/photo-1551816230-ef5deaed4a26?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Apple Watch" class="rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                
+                <!-- iPad Pro with Apple Pencil on desk -->
+                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="iPad Pro" class="rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: City Selection Section -->
+    <section id="buy" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-apple-dark mb-6">Choose Your City</h2>
+                <p class="text-xl text-apple-secondary max-w-2xl mx-auto">
+                    Select your location to browse available Apple products and local pickup options
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Jakarta Card -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer" data-city="jakarta">
+                    <!-- Jakarta cityscape with modern skyscrapers -->
+                    <img src="https://pixabay.com/get/g3549834403ed88f56d0c955b98e485018eb623a92d8195552b415485488d7d8bec7d66070629ca27fb10c55bf82d8877768514c7150fd6010caaac8d135faf21_1280.jpg" alt="Jakarta cityscape" class="w-full h-48 object-cover rounded-t-2xl">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-apple-dark mb-2">Jakarta</h3>
+                        <p class="text-apple-secondary mb-4">Capital city with the largest selection</p>
+                        <div class="flex items-center text-apple-blue">
+                            <span class="font-medium">Browse Products</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Surabaya Card -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer" data-city="surabaya">
+                    <!-- Surabaya modern district with contemporary architecture -->
+                    <img src="https://pixabay.com/get/g3e21646d3518ee17d8e061cc5f7355ec37839b65867df1a70e13693537c998660c1a51ea19dd0bc58af2821e6ddd527dda09f2ffab3305daea3cab64e306a141_1280.jpg" alt="Surabaya modern district" class="w-full h-48 object-cover rounded-t-2xl">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-apple-dark mb-2">Surabaya</h3>
+                        <p class="text-apple-secondary mb-4">East Java's technology hub</p>
+                        <div class="flex items-center text-apple-blue">
+                            <span class="font-medium">Browse Products</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bandung Card -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer" data-city="bandung">
+                    <!-- Bandung city view with mountains in background -->
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="Bandung city with mountains" class="w-full h-48 object-cover rounded-t-2xl">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-apple-dark mb-2">Bandung</h3>
+                        <p class="text-apple-secondary mb-4">Creative city with tech community</p>
+                        <div class="flex items-center text-apple-blue">
+                            <span class="font-medium">Browse Products</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Malang Card -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer" data-city="malang">
+                    <!-- Malang traditional architecture mixed with modern buildings -->
+                    <img src="https://pixabay.com/get/gb9cbb9268c0735eada32c8c63f26e7f00705d4b20e4cd8bcb8b6721ca1d0c3d9611bfd3951b3f37f4c4d0e2f2159118e52cc24d30cdf7b6ee9d392bc76233be4_1280.jpg" alt="Malang city architecture" class="w-full h-48 object-cover rounded-t-2xl">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-apple-dark mb-2">Malang</h3>
+                        <p class="text-apple-secondary mb-4">University town with young demographics</p>
+                        <div class="flex items-center text-apple-blue">
+                            <span class="font-medium">Browse Products</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: City Selection Section -->
+
+    <!-- @COMPONENT: Product Catalog Section -->
+    <section class="py-20 bg-apple-gray hidden" id="product-catalog">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-apple-dark mb-2" id="city-title">Available in Jakarta</h2>
+                    <p class="text-apple-secondary">Premium Apple products ready for pickup</p>
+                </div>
+                <button class="text-apple-blue hover:text-blue-600 font-medium" id="back-to-cities">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Cities
+                </button>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="mb-8">
+                <div class="relative max-w-md">
+                    <input type="text" placeholder="Search products..." class="w-full px-4 py-3 pl-12 rounded-xl border border-gray-200 focus:border-apple-blue focus:ring-2 focus:ring-apple-blue/20 outline-none transition-all">
+                    <i class="fas fa-search absolute left-4 top-4 text-apple-secondary"></i>
+                </div>
+            </div>
+            
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="product-grid">
+                <!-- Products will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Product Catalog Section -->
+
+    <!-- @COMPONENT: Sell Section -->
+    <section id="sell" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-apple-dark mb-6">Sell Your Apple Device</h2>
+                <p class="text-xl text-apple-secondary max-w-2xl mx-auto">
+                    Get the best value for your Apple products with our quick and secure selling process
+                </p>
+            </div>
+            
+            <!-- Sell Categories -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-16 h-16 bg-apple-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mobile-alt text-2xl text-apple-blue"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-apple-dark mb-2">iPhone</h3>
+                    <p class="text-apple-secondary text-sm">iPhone 12 - 15 Series</p>
+                    <p class="text-apple-blue font-semibold mt-2">Rp 8,000,000 - 25,000,000</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-16 h-16 bg-apple-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-laptop text-2xl text-apple-blue"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-apple-dark mb-2">MacBook</h3>
+                    <p class="text-apple-secondary text-sm">Air & Pro Models</p>
+                    <p class="text-apple-blue font-semibold mt-2">Rp 12,000,000 - 45,000,000</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-16 h-16 bg-apple-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tablet-alt text-2xl text-apple-blue"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-apple-dark mb-2">iPad</h3>
+                    <p class="text-apple-secondary text-sm">iPad & iPad Pro</p>
+                    <p class="text-apple-blue font-semibold mt-2">Rp 5,000,000 - 20,000,000</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-16 h-16 bg-apple-blue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-2xl text-apple-blue"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-apple-dark mb-2">Apple Watch</h3>
+                    <p class="text-apple-secondary text-sm">Series 7 - 9</p>
+                    <p class="text-apple-blue font-semibold mt-2">Rp 3,000,000 - 12,000,000</p>
+                </div>
+            </div>
+            
+            <!-- Sell Process -->
+            <div class="bg-apple-gray rounded-3xl p-8 md:p-12">
+                <h3 class="text-2xl font-bold text-apple-dark mb-8 text-center">How to Sell</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-apple-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">1</div>
+                        <h4 class="font-semibold text-apple-dark mb-2">Get Quote</h4>
+                        <p class="text-apple-secondary text-sm">Tell us about your device condition and model</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-apple-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">2</div>
+                        <h4 class="font-semibold text-apple-dark mb-2">Schedule Pickup</h4>
+                        <p class="text-apple-secondary text-sm">Choose convenient time and location</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-apple-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold">3</div>
+                        <h4 class="font-semibold text-apple-dark mb-2">Get Paid</h4>
+                        <p class="text-apple-secondary text-sm">Receive instant payment after verification</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <button class="bg-apple-blue text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-200">
+                        Start Selling Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Sell Section -->
+
+    <!-- @COMPONENT: Contact Section -->
+    <section id="contact" class="py-20 bg-apple-dark text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
+                    <p class="text-gray-300 mb-8">Have questions? We're here to help you with buying or selling Apple products.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-apple-blue rounded-full flex items-center justify-center">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Phone</p>
+                                <p class="text-gray-300">+62 811-2345-6789</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-apple-blue rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Email</p>
+                                <p class="text-gray-300">hello@mikeyapplestuff.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-apple-blue rounded-full flex items-center justify-center">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Business Hours</p>
+                                <p class="text-gray-300">Mon - Sat: 9AM - 8PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4 mt-8">
+                        <a href="#" class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-apple-blue transition-colors">
+                            <i class="fab fa-instagram text-white"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-apple-blue transition-colors">
+                            <i class="fab fa-whatsapp text-white"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-apple-blue transition-colors">
+                            <i class="fab fa-facebook text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold mb-6">Send us a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-apple-blue focus:ring-2 focus:ring-apple-blue/20 outline-none transition-all">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-xl bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-apple-blue focus:ring-2 focus:ring-apple-blue/20 outline-none transition-all">
+                        </div>
+                        <div>
+                            <textarea rows="4" placeholder="Your Message" class="w-full px-4 py-3 rounded-xl bg-gray-700 border border-gray-600 text-white placeholder-gray-400 focus:border-apple-blue focus:ring-2 focus:ring-apple-blue/20 outline-none transition-all resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-apple-blue text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-600 transition-colors duration-200">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-black text-gray-400 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fab fa-apple text-2xl text-white"></i>
+                        <span class="text-xl font-semibold text-white">Mikey Applestuff</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your trusted partner for premium Apple products across Indonesia. Quality guaranteed, service excellence delivered.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#buy" class="hover:text-white transition-colors">Buy Products</a></li>
+                        <li><a href="#sell" class="hover:text-white transition-colors">Sell Device</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Cities</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">Jakarta</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Surabaya</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Bandung</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Malang</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>&copy; 2024 Mikey Applestuff. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- @COMPONENT: Product Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4" id="product-modal">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-apple-dark" id="modal-title">Product Details</h3>
+                    <button class="text-gray-500 hover:text-apple-dark" id="close-modal">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div id="modal-content">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Product Modal -->
+
+    <script>
+        (function() {
+            // Mock product data for different cities
+            const productData = {
+                jakarta: [
+                    { name: 'iPhone 15 Pro Max', price: 'Rp 19,999,000', storage: '256GB', color: 'Natural Titanium', condition: 'New', image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'MacBook Pro 16"', price: 'Rp 42,999,000', storage: '512GB', color: 'Space Black', condition: 'New', image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'iPad Pro 12.9"', price: 'Rp 16,999,000', storage: '256GB', color: 'Space Gray', condition: 'Like New', image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'Apple Watch Series 9', price: 'Rp 7,999,000', storage: '45mm', color: 'Midnight', condition: 'New', image: 'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'iPhone 14 Pro', price: 'Rp 16,999,000', storage: '256GB', color: 'Deep Purple', condition: 'Like New', image: 'https://images.unsplash.com/photo-1663499482523-1c0c1bae4ce1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'MacBook Air M2', price: 'Rp 21,999,000', storage: '256GB', color: 'Silver', condition: 'New', image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' }
+                ],
+                surabaya: [
+                    { name: 'iPhone 15', price: 'Rp 14,999,000', storage: '128GB', color: 'Pink', condition: 'New', image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'iPad Air', price: 'Rp 9,999,000', storage: '64GB', color: 'Blue', condition: 'Like New', image: 'https://images.unsplash.com/photo-1587033411391-5d9e51cce126?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'Apple Watch SE', price: 'Rp 4,999,000', storage: '40mm', color: 'Starlight', condition: 'New', image: 'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'MacBook Air M1', price: 'Rp 17,999,000', storage: '256GB', color: 'Gold', condition: 'Excellent', image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' }
+                ],
+                bandung: [
+                    { name: 'iPhone 13', price: 'Rp 11,999,000', storage: '128GB', color: 'Blue', condition: 'Excellent', image: 'https://images.unsplash.com/photo-1632633728024-70bb0d2c60dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'iPad mini', price: 'Rp 7,999,000', storage: '64GB', color: 'Purple', condition: 'Like New', image: 'https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'Apple Watch Series 8', price: 'Rp 6,999,000', storage: '41mm', color: 'Product Red', condition: 'New', image: 'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' }
+                ],
+                malang: [
+                    { name: 'iPhone 12', price: 'Rp 9,999,000', storage: '64GB', color: 'Green', condition: 'Good', image: 'https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'iPad 9th Gen', price: 'Rp 5,999,000', storage: '64GB', color: 'Silver', condition: 'Like New', image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' },
+                    { name: 'Apple Watch Series 7', price: 'Rp 5,999,000', storage: '41mm', color: 'Green', condition: 'Excellent', image: 'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300' }
+                ]
+            };
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // City selection functionality
+            const cityCards = document.querySelectorAll('[data-city]');
+            const productCatalog = document.getElementById('product-catalog');
+            const buySection = document.getElementById('buy');
+            const cityTitle = document.getElementById('city-title');
+            const productGrid = document.getElementById('product-grid');
+            const backToCitiesBtn = document.getElementById('back-to-cities');
+
+            cityCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const city = this.dataset.city;
+                    showProductCatalog(city);
+                });
+            });
+
+            backToCitiesBtn.addEventListener('click', function() {
+                productCatalog.classList.add('hidden');
+                buySection.classList.remove('hidden');
+            });
+
+            function showProductCatalog(city) {
+                const cityNames = {
+                    jakarta: 'Jakarta',
+                    surabaya: 'Surabaya', 
+                    bandung: 'Bandung',
+                    malang: 'Malang'
+                };
+                
+                cityTitle.textContent = `Available in ${cityNames[city]}`;
+                
+                // Clear and populate product grid
+                productGrid.innerHTML = '';
+                const products = productData[city] || [];
+                
+                products.forEach(product => {
+                    const productCard = createProductCard(product);
+                    productGrid.appendChild(productCard);
+                });
+                
+                buySection.classList.add('hidden');
+                productCatalog.classList.remove('hidden');
+            }
+
+            function createProductCard(product) {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer';
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-t-2xl">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-apple-dark">${product.name}</h3>
+                            <span class="px-2 py-1 bg-green-100 text-green-600 text-xs rounded-full">${product.condition}</span>
+                        </div>
+                        <p class="text-apple-secondary text-sm mb-2">${product.storage} • ${product.color}</p>
+                        <p class="text-xl font-bold text-apple-blue mb-4">${product.price}</p>
+                        <button class="w-full bg-apple-blue text-white py-2 rounded-xl font-medium hover:bg-blue-600 transition-colors duration-200">
+                            View Details
+                        </button>
+                    </div>
+                `;
+                
+                card.addEventListener('click', () => showProductModal(product));
+                return card;
+            }
+
+            // Product modal functionality
+            const productModal = document.getElementById('product-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            const closeModal = document.getElementById('close-modal');
+
+            function showProductModal(product) {
+                modalTitle.textContent = product.name;
+                modalContent.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover rounded-xl mb-6">
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="text-apple-secondary text-sm">Price</p>
+                            <p class="text-2xl font-bold text-apple-blue">${product.price}</p>
+                        </div>
+                        <div>
+                            <p class="text-apple-secondary text-sm">Condition</p>
+                            <p class="font-semibold text-apple-dark">${product.condition}</p>
+                        </div>
+                        <div>
+                            <p class="text-apple-secondary text-sm">Storage</p>
+                            <p class="font-semibold text-apple-dark">${product.storage}</p>
+                        </div>
+                        <div>
+                            <p class="text-apple-secondary text-sm">Color</p>
+                            <p class="font-semibold text-apple-dark">${product.color}</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <button class="w-full bg-apple-blue text-white py-3 rounded-xl font-semibold hover:bg-blue-600 transition-colors duration-200">
+                            <i class="fas fa-shopping-cart mr-2"></i>
+                            Add to Cart
+                        </button>
+                        <button class="w-full border-2 border-apple-blue text-apple-blue py-3 rounded-xl font-semibold hover:bg-apple-blue hover:text-white transition-all duration-200">
+                            <i class="fas fa-whatsapp mr-2"></i>
+                            Contact Seller
+                        </button>
+                    </div>
+                `;
+                productModal.classList.remove('hidden');
+                productModal.classList.add('flex');
+            }
+
+            closeModal.addEventListener('click', function() {
+                productModal.classList.add('hidden');
+                productModal.classList.remove('flex');
+            });
+
+            productModal.addEventListener('click', function(e) {
+                if (e.target === productModal) {
+                    productModal.classList.add('hidden');
+                    productModal.classList.remove('flex');
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // TODO: Implement business logic for:
+            // - Real product database integration
+            // - User authentication and profiles
+            // - Shopping cart functionality
+            // - Payment processing
+            // - Order management system
+            // - Real-time inventory updates
+            // - Search and filtering capabilities
+            // - User reviews and ratings
+            // - Notification system
+        })();
+    </script>
+</body>
+</html>
