@@ -7,15 +7,19 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <i className="fab fa-apple text-electric-yellow text-2xl"></i>
-              <span className="text-xl font-bold">Mikey Applestuff</span>
+              <img
+                src="\Logos\mikey-logo-bny.png"
+                alt="Logo"
+                className="w-46 h-14"
+              />
             </div>
             <p className="text-gray-400 mb-4">
               Your trusted marketplace for authentic Apple devices across Indonesia.
             </p>
             <div className="flex space-x-3">
               <a
-                href="#"
+                href="https://www.instagram.com/mikeys_applestuff"
+                target="_blank"
                 className="text-electric-yellow hover:glow-yellow transition-all duration-300"
                 data-testid="social-instagram"
               >

@@ -79,7 +79,8 @@ export default function Contact() {
                 <h3 className="text-2xl font-bold mb-6 text-electric-yellow">Follow Us</h3>
                 <div className="flex space-x-4">
                   <a
-                    href="#"
+                    href="https://www.instagram.com/mikeys_applestuff"
+                    target="_blank"
                     className="bg-electric-yellow text-black p-3 rounded-lg hover:glow-yellow-strong transition-all duration-300"
                     data-testid="social-instagram-contact"
                   >
