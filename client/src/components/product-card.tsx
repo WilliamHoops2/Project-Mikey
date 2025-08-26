@@ -9,13 +9,13 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <Card className="bg-charcoal border-electric-yellow/20 card-hover">
+    <Card className="bg-charcoal border-electric-yellow/20 card-hover h-full flex flex-col">
       <img
         src={product.imageUrl}
         alt={product.name}
         className="w-full h-48 object-cover rounded-t"
       />
-      <CardContent className="p-6">
+      <CardContent className="p-6 flex flex-col flex-1">
         <h3 className="text-lg font-bold mb-2" data-testid={`product-name-${product.id}`}>
           {product.name}
         </h3>
@@ -27,13 +27,13 @@ export default function ProductCard({ product }: ProductCardProps) {
             Storage: {product.storage}
           </p>
         )}
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex justify-between items-center mt-auto mb-4">
           <span className="text-electric-yellow font-bold text-lg" data-testid={`product-price-${product.id}`}>
             Rp {parseInt(product.price).toLocaleString()}
           </span>
           <Badge 
             variant="secondary" 
-            className="bg-electric-yellow/20 text-electric-yellow"
+            className="bg-electric-yellow/20 text-electric-yellow text-lg px-4 py-2 font-bold"
             data-testid={`product-stock-${product.id}`}
           >
             {product.stock} left

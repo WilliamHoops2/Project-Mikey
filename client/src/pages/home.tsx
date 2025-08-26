@@ -14,7 +14,7 @@ export default function Home() {
   });
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-background text-foreground">
       {/* Hero Section */}
       <section className="gradient-dark min-h-screen flex items-center">
         <div className="container mx-auto px-4 py-20">
@@ -123,7 +123,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="bg-black py-20">
+      <section className="bg-background py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16">
             Featured <span className="text-electric-yellow">Products</span>

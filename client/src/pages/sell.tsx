@@ -14,7 +14,13 @@ export default function Sell() {
   });
 
   const { data: sellPrices, isLoading: sellPricesLoading } = useQuery<SellPrice[]>({
-    queryKey: ["/api/sell-prices", selectedCategory],
+    queryKey: ["/api/sell-prices", { category: selectedCategory }],
+    queryFn: async () => {
+      if (!selectedCategory) return [];
+      const response = await fetch(`/api/sell-prices?category=${selectedCategory}`);
+      if (!response.ok) throw new Error('Failed to fetch sell prices');
+      return response.json();
+    },
     enabled: !!selectedCategory,
   });
 

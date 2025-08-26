@@ -16,7 +16,13 @@ export default function Buy() {
   });
 
   const { data: products, isLoading: productsLoading } = useQuery<Product[]>({
-    queryKey: ["/api/products", selectedCityId],
+    queryKey: ["/api/products", { cityId: selectedCityId }],
+    queryFn: async () => {
+      if (!selectedCityId) return [];
+      const response = await fetch(`/api/products?cityId=${selectedCityId}`);
+      if (!response.ok) throw new Error('Failed to fetch products');
+      return response.json();
+    },
     enabled: !!selectedCityId,
   });
 
