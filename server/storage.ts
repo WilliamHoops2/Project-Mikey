@@ -53,25 +53,25 @@ export class MemStorage implements IStorage {
       {
         name: "malang",
         displayName: "Malang",
-        productCount: 15,
+        productCount: 0, // Will be calculated based on product stock
         imageUrl: "/cities/malang.jpeg"
       },
       {
         name: "surabaya",
         displayName: "Surabaya",
-        productCount: 23,
+        productCount: 0, // Will be calculated based on product stock
         imageUrl: "/cities/surabaya.jpeg"
       },
       {
         name: "bandung",
         displayName: "Bandung",
-        productCount: 18,
+        productCount: 0, // Will be calculated based on product stock
         imageUrl: "cities/bandung.png"
       },
       {
         name: "jakarta",
         displayName: "Jakarta",
-        productCount: 32,
+        productCount: 0, // Will be calculated based on product stock
         imageUrl: "/cities/jakarta.jpg"
       }
     ];
@@ -253,82 +253,330 @@ export class MemStorage implements IStorage {
       });
     });
 
-    // Initialize sell prices
+    // calculate units per city
+    const cityStockCount = new Map<string, number>();
+    this.products.forEach(product => {
+      if (product.cityId) {
+        const currentStock = cityStockCount.get(product.cityId) || 0;
+        cityStockCount.set(product.cityId, currentStock + product.stock);
+      }
+    });
+
+    // update product count in citeis
+    this.cities.forEach(city => {
+      city.productCount = cityStockCount.get(city.id) || 0;
+    });
+
+    // set sell prices
     const sellPricesData: InsertSellPrice[] = [
-      // iPhone models
+      // iPhone
+      {
+        model: "iPhone 16 Pro Max",
+        category: "iphone",
+        storage: "256GB",
+        excellentPrice: "19000000",
+        goodPrice: "17500000",
+        fairPrice: "17000000",
+        storageOptions: [{ value: "256GB", adjustment: 0 }, { value: "512GB", adjustment: 2000000 }, { value: "1TB", adjustment: 4000000 }]
+      },
+      {
+        model: "iPhone 16 Pro",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "16000000",
+        goodPrice: "14500000",
+        fairPrice: "14000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }, { value: "1TB", adjustment: 4500000 }]
+      },
+      {
+        model: "iPhone 16 Plus",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "12500000",
+        goodPrice: "12000000",
+        fairPrice: "12000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }]
+      },
+      {
+        model: "iPhone 16",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "11500000",
+        goodPrice: "11000000",
+        fairPrice: "11000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }]
+      },
+      {
+        model: "iPhone 15 Pro Max",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "12500000",
+        goodPrice: "12200000",
+        fairPrice: "12000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }, { value: "1TB", adjustment: 4500000 }]
+      },
+      {
+        model: "iPhone 15 Pro",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "12500000",
+        goodPrice: "12200000",
+        fairPrice: "12000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }, { value: "1TB", adjustment: 4500000 }]
+      },
+      {
+        model: "iPhone 15 Plus",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "9500000",
+        goodPrice: "9000000",
+        fairPrice: "9000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }]
+      },
+      {
+        model: "iPhone 15",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "8500000",
+        goodPrice: "8000000",
+        fairPrice: "8000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }]
+      },
       {
         model: "iPhone 14 Pro Max",
         category: "iphone",
         storage: "128GB",
-        excellentPrice: "17500000",
-        goodPrice: "15800000",
-        fairPrice: "13200000"
+        excellentPrice: "9500000",
+        goodPrice: "9500000",
+        fairPrice: "9500000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }, { value: "1TB", adjustment: 4500000 }]
+      },
+      {
+        model: "iPhone 14 Pro",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "9000000",
+        goodPrice: "9000000",
+        fairPrice: "9000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }, { value: "1TB", adjustment: 4500000 }]
+      },
+      {
+        model: "iPhone 14",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "7000000",
+        goodPrice: "6500000",
+        fairPrice: "6000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }]
       },
       {
         model: "iPhone 13 Pro Max",
         category: "iphone",
         storage: "128GB",
-        excellentPrice: "13200000",
-        goodPrice: "11800000",
-        fairPrice: "9500000"
+        excellentPrice: "8500000",
+        goodPrice: "8000000",
+        fairPrice: "8000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }, { value: "1TB", adjustment: 4500000 }]
       },
       {
         model: "iPhone 13 Pro",
         category: "iphone",
         storage: "128GB",
-        excellentPrice: "11800000",
-        goodPrice: "10200000",
-        fairPrice: "8500000"
+        excellentPrice: "800000",
+        goodPrice: "7500000",
+        fairPrice: "7500000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }, { value: "1TB", adjustment: 4500000 }]
+      },
+      {
+        model: "iPhone 13",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "6300000",
+        goodPrice: "5700000",
+        fairPrice: "5500000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }]
+      },
+      {
+        model: "iPhone 12 Pro Max",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "6000000",
+        goodPrice: "6000000",
+        fairPrice: "6000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }, { value: "512GB", adjustment: 2000000 }]
+      },
+      {
+        model: "iPhone 12 Pro",
+        category: "iphone",
+        storage: "128GB",
+        excellentPrice: "5300000",
+        goodPrice: "5300000",
+        fairPrice: "5000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }, { value: "512GB", adjustment: 2000000 }]
+      },
+      {
+        model: "iPhone 12 Mini",
+        category: "iphone",
+        storage: "64GB",
+        excellentPrice: "3500000",
+        goodPrice: "3500000",
+        fairPrice: "3500000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 800000 }, { value: "256GB", adjustment: 1600000 }]
       },
       {
         model: "iPhone 12",
         category: "iphone",
-        storage: "128GB",
-        excellentPrice: "8500000",
-        goodPrice: "7200000",
-        fairPrice: "5800000"
+        storage: "64GB",
+        excellentPrice: "4700000",
+        goodPrice: "4300000",
+        fairPrice: "4000000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 800000 }, { value: "256GB", adjustment: 1600000 }]
       },
       {
         model: "iPhone 11",
         category: "iphone",
-        storage: "128GB",
-        excellentPrice: "5800000",
-        goodPrice: "4800000",
-        fairPrice: "3800000"
+        storage: "64GB",
+        excellentPrice: "4300000",
+        goodPrice: "4000000",
+        fairPrice: "3500000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 700000 }, { value: "256GB", adjustment: 1400000 }]
       },
-      // iPad models
       {
-        model: "iPad Pro 12.9",
+        model: "iPhone XR",
+        category: "iphone",
+        storage: "64GB",
+        excellentPrice: "2700000",
+        goodPrice: "2500000",
+        fairPrice: "2300000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 600000 }, { value: "256GB", adjustment: 1200000 }]
+      },
+      {
+        model: "iPhone XS Max",
+        category: "iphone",
+        storage: "64GB",
+        excellentPrice: "3000000",
+        goodPrice: "2500000",
+        fairPrice: "2300000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 1500000 }, { value: "512GB", adjustment: 3000000 }]
+      },
+      {
+        model: "iPhone XS",
+        category: "iphone",
+        storage: "64GB",
+        excellentPrice: "2300000",
+        goodPrice: "2000000",
+        fairPrice: "1900000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 500000 }, { value: "512GB", adjustment: 1000000 }]
+      },
+      {
+        model: "iPhone X",
+        category: "iphone",
+        storage: "64GB",
+        excellentPrice: "1500000",
+        goodPrice: "1300000",
+        fairPrice: "1200000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 400000 }, { value: "256GB", adjustment: 800000 }]
+      },
+      // iPad
+      {
+        model: "iPad Pro M4",
         category: "ipad",
         storage: "256GB",
-        excellentPrice: "14500000",
-        goodPrice: "12800000",
-        fairPrice: "10500000"
+        excellentPrice: "12400000",
+        goodPrice: "12200000",
+        fairPrice: "11500000",
+        storageOptions: [{ value: "256GB", adjustment: 0 }]
       },
       {
-        model: "iPad Air",
-        category: "ipad",
-        storage: "64GB",
-        excellentPrice: "7500000",
-        goodPrice: "6200000",
-        fairPrice: "4800000"
-      },
-      {
-        model: "iPad Pro 11",
+        model: "iPad Pro M2",
         category: "ipad",
         storage: "128GB",
-        excellentPrice: "9800000",
-        goodPrice: "8200000",
-        fairPrice: "6500000"
+        excellentPrice: "8900000",
+        goodPrice: "8700000",
+        fairPrice: "8000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
       },
-      // MacBook models
       {
-        model: "MacBook Pro M2",
+        model: "iPad Pro M1",
+        category: "ipad",
+        storage: "128GB",
+        excellentPrice: "7900000",
+        goodPrice: "7700000",
+        fairPrice: "7000000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+      },
+      {
+        model: "iPad Air 6",
+        category: "ipad",
+        storage: "128GB",
+        excellentPrice: "6700000",
+        goodPrice: "6500000",
+        fairPrice: "5800000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+      },
+      {
+        model: "iPad Air 5",
+        category: "ipad",
+        storage: "64GB",
+        excellentPrice: "5700000",
+        goodPrice: "5500000",
+        fairPrice: "4800000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+      },
+      {
+        model: "iPad Mini 7",
+        category: "ipad",
+        storage: "128GB",
+        excellentPrice: "6400000",
+        goodPrice: "6200000",
+        fairPrice: "5500000",
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+      },
+      {
+        model: "iPad Mini 6",
+        category: "ipad",
+        storage: "64GB",
+        excellentPrice: "4900000",
+        goodPrice: "4700000",
+        fairPrice: "4000000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+      },
+      {
+        model: "iPad 11",
+        category: "ipad",
+        storage: "64GB",
+        excellentPrice: "4900000",
+        goodPrice: "3700000",
+        fairPrice: "4000000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 400000 }, { value: "256GB", adjustment: 800000 }]
+      },
+      {
+        model: "iPad 10",
+        category: "ipad",
+        storage: "64GB",
+        excellentPrice: "3900000",
+        goodPrice: "3700000",
+        fairPrice: "3000000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 400000 }, { value: "256GB", adjustment: 800000 }]
+      },
+      {
+        model: "iPad 9",
+        category: "ipad",
+        storage: "64GB",
+        excellentPrice: "2900000",
+        goodPrice: "2700000",
+        fairPrice: "2000000",
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+      },
+      // MacBook
+      {
+        model: "MacBook Air M2",
         category: "macbook",
-        storage: "512GB",
+        storage: "256GB",
         excellentPrice: "21500000",
         goodPrice: "18800000",
-        fairPrice: "15200000"
+        fairPrice: "9500000",
+        storageOptions: [{ value: "512GB", adjustment: 0 }, { value: "1TB", adjustment: 3000000 }, { value: "2TB", adjustment: 6000000 }]
       },
       {
         model: "MacBook Air M2",
@@ -336,15 +584,8 @@ export class MemStorage implements IStorage {
         storage: "256GB",
         excellentPrice: "16800000",
         goodPrice: "14500000",
-        fairPrice: "11800000"
-      },
-      {
-        model: "MacBook Pro M1",
-        category: "macbook",
-        storage: "512GB",
-        excellentPrice: "18500000",
-        goodPrice: "15800000",
-        fairPrice: "12800000"
+        fairPrice: "6500000",
+        storageOptions: [{ value: "256GB", adjustment: 0 }, { value: "512GB", adjustment: 2500000 }, { value: "1TB", adjustment: 5000000 }]
       },
       // Accessories
       {
@@ -353,7 +594,8 @@ export class MemStorage implements IStorage {
         storage: null,
         excellentPrice: "3200000",
         goodPrice: "2800000",
-        fairPrice: "2200000"
+        fairPrice: "2200000",
+        storageOptions: [{ value: "N/A", adjustment: 0 }]
       },
       {
         model: "AirPods Max",
@@ -361,7 +603,8 @@ export class MemStorage implements IStorage {
         storage: null,
         excellentPrice: "7500000",
         goodPrice: "6500000",
-        fairPrice: "5200000"
+        fairPrice: "5200000",
+        storageOptions: [{ value: "N/A", adjustment: 0 }]
       },
       {
         model: "Apple Watch Series 8",
@@ -369,7 +612,8 @@ export class MemStorage implements IStorage {
         storage: null,
         excellentPrice: "5800000",
         goodPrice: "4800000",
-        fairPrice: "3800000"
+        fairPrice: "3800000",
+        storageOptions: [{ value: "N/A", adjustment: 0 }]
       }
     ];
 
@@ -377,12 +621,12 @@ export class MemStorage implements IStorage {
       const id = randomUUID();
       this.sellPrices.set(id, { 
         ...sellPrice, 
-        id,
-        storage: sellPrice.storage || null
+        id, // Ensure id is always set
+        storage: sellPrice.storage || null, // Keep existing storage field
+        storageOptions: sellPrice.storageOptions ?? null // Use null to match the schema type
       });
     });
 
-    // Stats are already initialized in the property declaration
   }
 
   // Cities
@@ -464,7 +708,12 @@ export class MemStorage implements IStorage {
 
   async createSellPrice(sellPrice: InsertSellPrice): Promise<SellPrice> {
     const id = randomUUID();
-    const newSellPrice: SellPrice = { ...sellPrice, id, storage: sellPrice.storage ?? null };
+    const newSellPrice: SellPrice = { 
+      ...sellPrice, 
+      id, 
+      storage: sellPrice.storage ?? null,
+      storageOptions: sellPrice.storageOptions ?? null
+    };
     this.sellPrices.set(id, newSellPrice);
     return newSellPrice;
   }

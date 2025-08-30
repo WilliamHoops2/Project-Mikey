@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, integer, decimal, boolean } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, integer, decimal, boolean, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -34,6 +34,13 @@ export const products = pgTable("products", {
   isAvailable: boolean("is_available").notNull().default(true),
 });
 
+const storageOptionSchema = z.object({
+  value: z.string(),
+  adjustment: z.number(),
+});
+
+const storageOptionsSchema = z.array(storageOptionSchema);
+
 export const sellPrices = pgTable("sell_prices", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   model: text("model").notNull(),
@@ -42,6 +49,7 @@ export const sellPrices = pgTable("sell_prices", {
   excellentPrice: decimal("excellent_price", { precision: 12, scale: 2 }).notNull(),
   goodPrice: decimal("good_price", { precision: 12, scale: 2 }).notNull(),
   fairPrice: decimal("fair_price", { precision: 12, scale: 2 }).notNull(),
+  storageOptions: jsonb("storage_options").$type<z.infer<typeof storageOptionsSchema>>(),
 });
 
 export const stats = pgTable("stats", {
@@ -55,7 +63,9 @@ export const stats = pgTable("stats", {
 export const insertCitySchema = createInsertSchema(cities).omit({ id: true });
 export const insertCategorySchema = createInsertSchema(categories).omit({ id: true });
 export const insertProductSchema = createInsertSchema(products).omit({ id: true });
-export const insertSellPriceSchema = createInsertSchema(sellPrices).omit({ id: true });
+export const insertSellPriceSchema = createInsertSchema(sellPrices, {
+  storageOptions: storageOptionsSchema.optional(),
+}).omit({ id: true });
 export const insertStatsSchema = createInsertSchema(stats).omit({ id: true });
 
 export type City = typeof cities.$inferSelect;

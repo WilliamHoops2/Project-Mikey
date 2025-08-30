@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -13,22 +13,65 @@ interface PricingModalProps {
   onClose: () => void;
 }
 
+const conditionOptions = [
+  { value: "excellent", label: "Excellent" },
+  { value: "good", label: "Good" },
+  { value: "fair", label: "Fair" },
+];
+
 export default function PricingModal({ sellPrice, isOpen, onClose }: PricingModalProps) {
-  const [storage, setStorage] = useState("128GB");
+  // Determine available storage options dynamically based on sellPrice
+  const availableStorageOptions = useMemo(() => {
+    if (sellPrice.storageOptions && sellPrice.storageOptions.length > 0) {
+      return sellPrice.storageOptions.map(opt => ({ value: opt.value, label: opt.value, adjustment: opt.adjustment }));
+    } else if (sellPrice.storage) {
+      return [{ value: sellPrice.storage, label: sellPrice.storage, adjustment: 0 }];
+    }
+    return [{ value: "N/A", label: "N/A", adjustment: 0 }]; // Fallback for products without specific storage or accessories
+  }, [sellPrice.storageOptions, sellPrice.storage]);
+
+  const [storage, setStorage] = useState(availableStorageOptions[0]?.value || "");
   const [condition, setCondition] = useState("excellent");
 
-  const getPrice = () => {
-    switch (condition) {
+  // Reset storage if the selected product changes and the current storage is no longer valid
+  useMemo(() => {
+    if (availableStorageOptions.length > 0 && !availableStorageOptions.some(opt => opt.value === storage)) {
+      setStorage(availableStorageOptions[0].value);
+    }
+  }, [availableStorageOptions, storage]);
+
+  const getPriceForCondition = (cond: string): number => {
+    switch (cond) {
       case "excellent":
-        return sellPrice.excellentPrice;
+        return parseInt(sellPrice.excellentPrice);
       case "good":
-        return sellPrice.goodPrice;
+        return parseInt(sellPrice.goodPrice);
       case "fair":
-        return sellPrice.fairPrice;
+        return parseInt(sellPrice.fairPrice);
       default:
-        return sellPrice.excellentPrice;
+        return parseInt(sellPrice.excellentPrice);
     }
   };
+
+  // Memoize getPriceForCondition to ensure stability
+  const getPriceForConditionMemoized = useCallback(getPriceForCondition, [sellPrice]);
+
+  const calculatePrice = useCallback((cond: string, selectedStorageValue: string): number => {
+    const basePrice = getPriceForConditionMemoized(cond);
+    // Find the adjustment for the currently selected storage from the dynamically determined options
+    const storageOption = availableStorageOptions.find(opt => opt.value === selectedStorageValue);
+    const storageAdjustment = storageOption?.adjustment ?? 0;
+    return basePrice + storageAdjustment;
+  }, [getPriceForConditionMemoized, availableStorageOptions]);
+
+  /*
+  // Original calculatePrice function (without useCallback)
+  const calculatePrice = (cond: string, selectedStorage: string): number => {
+    const basePrice = getPriceForCondition(cond);
+    const storageAdjustment = availableStorageOptions.find(opt => opt.value === selectedStorage)?.adjustment ?? 0;
+    return basePrice + storageAdjustment;
+  };
+  */
 
   const getConditionDescription = (cond: string) => {
     switch (cond) {
@@ -44,10 +87,17 @@ export default function PricingModal({ sellPrice, isOpen, onClose }: PricingModa
   };
 
   const handleContactUs = () => {
-    const message = `Hi! I'd like to sell my ${sellPrice.model} (${storage}, ${condition} condition). My estimated quote is Rp ${parseInt(getPrice()).toLocaleString()}.`;
-    const whatsappUrl = `https://wa.me/6282100000000?text=${encodeURIComponent(message)}`;
+    const message = `Hi! I'd like to sell my ${sellPrice.model} (${storage}, ${condition} condition). My estimated quote is Rp ${estimatedQuote.toLocaleString()}.`;
+    const whatsappUrl = `https://wa.me/6285331069777?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
+
+  const estimatedQuote = useMemo(() => {
+    return calculatePrice(condition, storage);
+  }, [condition, storage, calculatePrice]);
+
+  // check if storage selection should be shown
+  const showStorageSelection = availableStorageOptions.length > 1 || (availableStorageOptions.length === 1 && availableStorageOptions[0].value !== "N/A");
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -62,29 +112,26 @@ export default function PricingModal({ sellPrice, isOpen, onClose }: PricingModa
         </DialogHeader>
 
         <div className="space-y-6">
-          <div>
-            <Label className="text-sm font-semibold mb-2 block">Storage Capacity</Label>
-            <Select value={storage} onValueChange={setStorage}>
-              <SelectTrigger className="bg-dark-gray border-electric-yellow/20" data-testid="select-storage">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="128GB">128GB</SelectItem>
-                <SelectItem value="256GB">256GB</SelectItem>
-                <SelectItem value="512GB">512GB</SelectItem>
-                <SelectItem value="1TB">1TB</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          {showStorageSelection && ( // Conditionally render storage selection
+            <div>
+              <Label className="text-sm font-semibold mb-2 block">Storage Capacity</Label>
+              <Select value={storage} onValueChange={setStorage}>
+                <SelectTrigger className="bg-dark-gray border-electric-yellow/20" data-testid="select-storage">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {availableStorageOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>{option.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          )}
 
           <div>
             <Label className="text-sm font-semibold mb-2 block">Condition</Label>
             <RadioGroup value={condition} onValueChange={setCondition} className="space-y-3">
-              {[
-                { value: "excellent", label: "Excellent", price: sellPrice.excellentPrice },
-                { value: "good", label: "Good", price: sellPrice.goodPrice },
-                { value: "fair", label: "Fair", price: sellPrice.fairPrice },
-              ].map((option) => (
+              {conditionOptions.map((option) => (
                 <div key={option.value}>
                   <Label
                     htmlFor={option.value}
@@ -103,7 +150,7 @@ export default function PricingModal({ sellPrice, isOpen, onClose }: PricingModa
                       className="text-electric-yellow font-bold"
                       data-testid={`price-${option.value}`}
                     >
-                      Rp {parseInt(option.price).toLocaleString()}
+                      Rp {calculatePrice(option.value, storage).toLocaleString()}
                     </span>
                   </Label>
                 </div>
@@ -119,7 +166,7 @@ export default function PricingModal({ sellPrice, isOpen, onClose }: PricingModa
                   className="text-2xl font-bold text-electric-yellow"
                   data-testid="estimated-quote"
                 >
-                  Rp {parseInt(getPrice()).toLocaleString()}
+                  Rp {estimatedQuote.toLocaleString()}
                 </span>
               </div>
               <p className="text-sm text-gray-400 mt-2">
