@@ -41,15 +41,30 @@ const storageOptionSchema = z.object({
 
 const storageOptionsSchema = z.array(storageOptionSchema);
 
+const typeOptionSchema = z.object({
+  value: z.string(),
+  price: z.string(),
+});
+const typeOptionsSchema = z.array(typeOptionSchema);
+
+const warrantyOptionSchema = z.object({
+  value: z.string(),
+  adjustment: z.number(),
+});
+const warrantyOptionsSchema = z.array(warrantyOptionSchema);
+
 export const sellPrices = pgTable("sell_prices", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   model: text("model").notNull(),
   category: text("category").notNull(),
   storage: text("storage"),
-  excellentPrice: decimal("excellent_price", { precision: 12, scale: 2 }).notNull(),
-  goodPrice: decimal("good_price", { precision: 12, scale: 2 }).notNull(),
-  fairPrice: decimal("fair_price", { precision: 12, scale: 2 }).notNull(),
+  excellentPrice: decimal("excellent_price", { precision: 12, scale: 2 }),
+  goodPrice: decimal("good_price", { precision: 12, scale: 2 }),
+  fairPrice: decimal("fair_price", { precision: 12, scale: 2 }),
+  description: text("description"),
   storageOptions: jsonb("storage_options").$type<z.infer<typeof storageOptionsSchema>>(),
+  typeOptions: jsonb("type_options").$type<z.infer<typeof typeOptionsSchema>>(),
+  warrantyOptions: jsonb("warranty_options").$type<z.infer<typeof warrantyOptionsSchema>>(),
 });
 
 export const stats = pgTable("stats", {
@@ -64,7 +79,9 @@ export const insertCitySchema = createInsertSchema(cities).omit({ id: true });
 export const insertCategorySchema = createInsertSchema(categories).omit({ id: true });
 export const insertProductSchema = createInsertSchema(products).omit({ id: true });
 export const insertSellPriceSchema = createInsertSchema(sellPrices, {
-  storageOptions: storageOptionsSchema.optional(),
+  storageOptions: storageOptionsSchema.optional().nullable(),
+  typeOptions: typeOptionsSchema.optional().nullable(),
+  warrantyOptions: warrantyOptionsSchema.optional().nullable(),
 }).omit({ id: true });
 export const insertStatsSchema = createInsertSchema(stats).omit({ id: true });
 
@@ -79,3 +96,6 @@ export type InsertCategory = z.infer<typeof insertCategorySchema>;
 export type InsertProduct = z.infer<typeof insertProductSchema>;
 export type InsertSellPrice = z.infer<typeof insertSellPriceSchema>;
 export type InsertStats = z.infer<typeof insertStatsSchema>;
+
+export type TypeOption = z.infer<typeof typeOptionSchema>;
+export type WarrantyOption = z.infer<typeof warrantyOptionSchema>;

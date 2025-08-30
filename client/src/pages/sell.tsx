@@ -121,29 +121,32 @@ export default function Sell() {
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="text-xl font-bold">{sellPrice.model}</h3>
                         <span className="text-electric-yellow font-bold">
-                          Rp {parseInt(sellPrice.fairPrice).toLocaleString()}+
+                          Rp {parseInt(sellPrice.fairPrice || "0").toLocaleString()}+
                         </span>
                       </div>
-                      <div className="space-y-2 mb-4">
-                        <div className="flex justify-between text-sm">
-                          <span className="text-gray-400">Excellent Condition:</span>
-                          <span className="text-electric-yellow font-semibold">
-                            Rp {parseInt(sellPrice.excellentPrice).toLocaleString()}
-                          </span>
-                        </div>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-gray-400">Good Condition:</span>
-                          <span className="text-electric-yellow font-semibold">
-                            Rp {parseInt(sellPrice.goodPrice).toLocaleString()}
-                          </span>
-                        </div>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-gray-400">Fair Condition:</span>
-                          <span className="text-electric-yellow font-semibold">
-                            Rp {parseInt(sellPrice.fairPrice).toLocaleString()}
-                          </span>
-                        </div>
-                      </div>
+                      {sellPrice.category === 'accessories' ? (
+                        <p className="text-base font-semibold text-gray-300 mb-4 h-[72px] flex items-center justify-center text-left">{sellPrice.description}</p>
+                      ) : (
+                        sellPrice.category === 'macbook' ? (
+                          <div className="space-y-2 mb-4 h-[72px]">
+                            <div className="flex justify-between text-sm"><span className="text-gray-400">32GB RAM:</span><span className="text-electric-yellow font-semibold">Rp {parseInt(sellPrice.excellentPrice || "0").toLocaleString()}</span></div>
+                            <div className="flex justify-between text-sm"><span className="text-gray-400">16GB RAM:</span><span className="text-electric-yellow font-semibold">Rp {parseInt(sellPrice.goodPrice || "0").toLocaleString()}</span></div>
+                            <div className="flex justify-between text-sm"><span className="text-gray-400">8GB RAM:</span><span className="text-electric-yellow font-semibold">Rp {parseInt(sellPrice.fairPrice || "0").toLocaleString()}</span></div>
+                          </div>
+                        ) : sellPrice.category === 'ipad' ? (
+                          <div className="space-y-2 mb-4 h-[72px]">
+                            <div className="flex justify-between text-sm"><span className="text-gray-400">With Apple Pencil Pro:</span><span className="text-electric-yellow font-semibold">Rp {parseInt(sellPrice.excellentPrice || "0").toLocaleString()}</span></div>
+                            <div className="flex justify-between text-sm"><span className="text-gray-400">With Apple Pencil Gen 2:</span><span className="text-electric-yellow font-semibold">Rp {parseInt(sellPrice.goodPrice || "0").toLocaleString()}</span></div>
+                            <div className="flex justify-between text-sm"><span className="text-gray-400">No Pencil:</span><span className="text-electric-yellow font-semibold">Rp {parseInt(sellPrice.fairPrice || "0").toLocaleString()}</span></div>
+                          </div>
+                        ) : (
+                            <div className="space-y-2 mb-4 h-[72px]">
+                              <div className="flex justify-between text-sm"><span className="text-gray-400">Excellent:</span><span className="text-electric-yellow font-semibold">Rp {parseInt(sellPrice.excellentPrice || "0").toLocaleString()}</span></div>
+                              <div className="flex justify-between text-sm"><span className="text-gray-400">Good:</span><span className="text-electric-yellow font-semibold">Rp {parseInt(sellPrice.goodPrice || "0").toLocaleString()}</span></div>
+                              <div className="flex justify-between text-sm"><span className="text-gray-400">Fair:</span><span className="text-electric-yellow font-semibold">Rp {parseInt(sellPrice.fairPrice || "0").toLocaleString()}</span></div>
+                            </div>
+                        )
+                      )}
                       <Button
                         className="w-full bg-electric-yellow text-black hover:glow-yellow-strong transition-all duration-300"
                         onClick={() => setSelectedModel(sellPrice)}

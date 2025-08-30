@@ -1,4 +1,4 @@
-import { type City, type Category, type Product, type SellPrice, type Stats, type InsertCity, type InsertCategory, type InsertProduct, type InsertSellPrice, type InsertStats } from "@shared/schema";
+import { type City, type Category, type Product, type SellPrice, type Stats, type InsertCity, type InsertCategory, type InsertProduct, type InsertSellPrice, type InsertStats, type TypeOption, type WarrantyOption } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
@@ -268,7 +268,11 @@ export class MemStorage implements IStorage {
     });
 
     // set sell prices
-    const sellPricesData: InsertSellPrice[] = [
+    const sellPricesData: (InsertSellPrice & {
+      description?: string | null;
+      typeOptions?: TypeOption[] | null;
+      warrantyOptions?: WarrantyOption[] | null;
+    })[] = [
       // iPhone
       {
         model: "iPhone 16 Pro Max",
@@ -482,138 +486,167 @@ export class MemStorage implements IStorage {
         model: "iPad Pro M4",
         category: "ipad",
         storage: "256GB",
-        excellentPrice: "12400000",
-        goodPrice: "12200000",
-        fairPrice: "11500000",
-        storageOptions: [{ value: "256GB", adjustment: 0 }]
+        fairPrice: "11500000", // No Pencil
+        goodPrice: "12000000", // Pencil Gen 2 (+500k)
+        excellentPrice: "12200000", // Pencil Pro (+700k)
+        storageOptions: [{ value: "256GB", adjustment: 0 }, { value: "512GB", adjustment: 2000000 }, { value: "1TB", adjustment: 4000000 }],
+        warrantyOptions: [{ value: "No Warranty", adjustment: 0 }, { value: "Active Warranty", adjustment: 200000 }]
       },
       {
         model: "iPad Pro M2",
         category: "ipad",
         storage: "128GB",
-        excellentPrice: "8900000",
-        goodPrice: "8700000",
-        fairPrice: "8000000",
-        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+        fairPrice: "8000000", // No Pencil
+        goodPrice: "8500000", // Pencil Gen 2 (+500k)
+        excellentPrice: "8700000", // Pencil Pro (+700k)
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }],
+        warrantyOptions: [{ value: "No Warranty", adjustment: 0 }, { value: "Active Warranty", adjustment: 200000 }]
       },
       {
         model: "iPad Pro M1",
         category: "ipad",
         storage: "128GB",
-        excellentPrice: "7900000",
-        goodPrice: "7700000",
-        fairPrice: "7000000",
-        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+        fairPrice: "7000000", // No Pencil
+        goodPrice: "7500000", // Pencil Gen 2 (+500k)
+        excellentPrice: "7700000", // Pencil Pro (+700k)
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }],
+        warrantyOptions: [{ value: "No Warranty", adjustment: 0 }, { value: "Active Warranty", adjustment: 200000 }]
       },
       {
         model: "iPad Air 6",
         category: "ipad",
         storage: "128GB",
-        excellentPrice: "6700000",
-        goodPrice: "6500000",
-        fairPrice: "5800000",
-        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+        fairPrice: "5800000", // No Pencil
+        goodPrice: "6300000", // Pencil Gen 2 (+500k)
+        excellentPrice: "6500000", // Pencil Pro (+700k)
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }],
+        warrantyOptions: [{ value: "No Warranty", adjustment: 0 }, { value: "Active Warranty", adjustment: 200000 }]
       },
       {
         model: "iPad Air 5",
         category: "ipad",
         storage: "64GB",
-        excellentPrice: "5700000",
-        goodPrice: "5500000",
-        fairPrice: "4800000",
-        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+        fairPrice: "4800000", // No Pencil
+        goodPrice: "5300000", // Pencil Gen 2 (+500k)
+        excellentPrice: "5500000", // Pencil Pro (+700k)
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }],
+        warrantyOptions: [{ value: "No Warranty", adjustment: 0 }, { value: "Active Warranty", adjustment: 200000 }]
       },
       {
         model: "iPad Mini 7",
         category: "ipad",
         storage: "128GB",
-        excellentPrice: "6400000",
-        goodPrice: "6200000",
-        fairPrice: "5500000",
-        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+        fairPrice: "5500000", // No Pencil
+        goodPrice: "6000000", // Pencil Gen 2 (+500k)
+        excellentPrice: "6200000", // Pencil Pro (+700k)
+        storageOptions: [{ value: "128GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }],
+        warrantyOptions: [{ value: "No Warranty", adjustment: 0 }, { value: "Active Warranty", adjustment: 200000 }]
       },
       {
         model: "iPad Mini 6",
         category: "ipad",
         storage: "64GB",
-        excellentPrice: "4900000",
-        goodPrice: "4700000",
-        fairPrice: "4000000",
-        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+        fairPrice: "4000000", // No Pencil
+        goodPrice: "4500000", // Pencil Gen 2 (+500k)
+        excellentPrice: "4700000", // Pencil Pro (+700k)
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }],
+        warrantyOptions: [{ value: "No Warranty", adjustment: 0 }, { value: "Active Warranty", adjustment: 200000 }]
       },
       {
         model: "iPad 11",
         category: "ipad",
         storage: "64GB",
-        excellentPrice: "4900000",
-        goodPrice: "3700000",
-        fairPrice: "4000000",
-        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 400000 }, { value: "256GB", adjustment: 800000 }]
+        fairPrice: "4000000", // No Pencil
+        goodPrice: "4500000", // Pencil Gen 2 (+500k)
+        excellentPrice: "4700000", // Pencil Pro (+700k)
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 400000 }, { value: "256GB", adjustment: 800000 }],
+        warrantyOptions: [{ value: "No Warranty", adjustment: 0 }, { value: "Active Warranty", adjustment: 200000 }]
       },
       {
         model: "iPad 10",
         category: "ipad",
         storage: "64GB",
-        excellentPrice: "3900000",
-        goodPrice: "3700000",
-        fairPrice: "3000000",
-        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 400000 }, { value: "256GB", adjustment: 800000 }]
+        fairPrice: "3000000", // No Pencil
+        goodPrice: "3500000", // Pencil Gen 2 (+500k)
+        excellentPrice: "3700000", // Pencil Pro (+700k)
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "128GB", adjustment: 400000 }, { value: "256GB", adjustment: 800000 }],
+        warrantyOptions: [{ value: "No Warranty", adjustment: 0 }, { value: "Active Warranty", adjustment: 200000 }]
       },
       {
         model: "iPad 9",
         category: "ipad",
         storage: "64GB",
-        excellentPrice: "2900000",
-        goodPrice: "2700000",
-        fairPrice: "2000000",
-        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }]
+        fairPrice: "2000000", // No Pencil
+        goodPrice: "2500000", // Pencil Gen 2 (+500k)
+        excellentPrice: "2700000", // Pencil Pro (+700k)
+        storageOptions: [{ value: "64GB", adjustment: 0 }, { value: "256GB", adjustment: 1000000 }],
+        warrantyOptions: [{ value: "No Warranty", adjustment: 0 }, { value: "Active Warranty", adjustment: 200000 }]
       },
       // MacBook
       {
         model: "MacBook Air M2",
         category: "macbook",
         storage: "256GB",
-        excellentPrice: "21500000",
-        goodPrice: "18800000",
-        fairPrice: "9500000",
+        fairPrice: "6500000", // 8GB
+        goodPrice: "7000000", // 16GB
+        excellentPrice: "7500000", // 32GB
         storageOptions: [{ value: "512GB", adjustment: 0 }, { value: "1TB", adjustment: 3000000 }, { value: "2TB", adjustment: 6000000 }]
       },
       {
         model: "MacBook Air M2",
         category: "macbook",
         storage: "256GB",
-        excellentPrice: "16800000",
-        goodPrice: "14500000",
-        fairPrice: "6500000",
+        fairPrice: "9500000", // 8GB
+        goodPrice: "10000000", // 16GB
+        excellentPrice: "10500000", // 32GB
         storageOptions: [{ value: "256GB", adjustment: 0 }, { value: "512GB", adjustment: 2500000 }, { value: "1TB", adjustment: 5000000 }]
       },
       // Accessories
       {
-        model: "AirPods Pro",
+        model: "Apple Watch",
         category: "accessories",
         storage: null,
-        excellentPrice: "3200000",
-        goodPrice: "2800000",
-        fairPrice: "2200000",
-        storageOptions: [{ value: "N/A", adjustment: 0 }]
+        excellentPrice: null,
+        goodPrice: null,
+        fairPrice: "1300000",
+        description: "Various models of Apple Watch, from the versatile SE to the rugged Ultra.",
+        storageOptions: null,
+        typeOptions: [
+          { value: "Apple Watch SE Gen 2 40mm", price: "1300000" },
+          { value: "Apple Watch SE Gen 2 44mm", price: "1500000" },
+          { value: "Apple Watch Series 9 41mm", price: "2500000" },
+          { value: "Apple Watch Series 9 45mm", price: "2800000" },
+        ]
       },
       {
-        model: "AirPods Max",
+        model: "Apple Pencil",
         category: "accessories",
         storage: null,
-        excellentPrice: "7500000",
-        goodPrice: "6500000",
-        fairPrice: "5200000",
-        storageOptions: [{ value: "N/A", adjustment: 0 }]
+        excellentPrice: null,
+        goodPrice: null,
+        fairPrice: "400000",
+        description: "The perfect tool for your iPad, available in multiple generations.",
+        storageOptions: null,
+        typeOptions: [
+          { value: "Apple Pencil Gen 1", price: "400000" },
+          { value: "Apple Pencil Gen 2", price: "800000" },
+        ]
       },
       {
-        model: "Apple Watch Series 8",
+        model: "AirPods",
         category: "accessories",
         storage: null,
-        excellentPrice: "5800000",
-        goodPrice: "4800000",
-        fairPrice: "3800000",
-        storageOptions: [{ value: "N/A", adjustment: 0 }]
+        excellentPrice: null,
+        goodPrice: null,
+        fairPrice: "1000000",
+        description: "All models of AirPods, from the classic earbuds to the premium over-ear Max.",
+        storageOptions: null,
+        typeOptions: [
+          { value: "AirPods Gen 2", price: "1000000" },
+          { value: "AirPods Gen 3", price: "1500000" },
+          { value: "AirPods Pro Gen 2", price: "2200000" },
+          { value: "AirPods Max", price: "5200000" },
+        ]
       }
     ];
 
@@ -623,7 +656,13 @@ export class MemStorage implements IStorage {
         ...sellPrice, 
         id, // Ensure id is always set
         storage: sellPrice.storage || null, // Keep existing storage field
-        storageOptions: sellPrice.storageOptions ?? null // Use null to match the schema type
+        excellentPrice: sellPrice.excellentPrice || null,
+        goodPrice: sellPrice.goodPrice || null,
+        fairPrice: sellPrice.fairPrice || null,
+        description: sellPrice.description || null,
+        storageOptions: sellPrice.storageOptions ?? null,
+        typeOptions: sellPrice.typeOptions ?? null,
+        warrantyOptions: sellPrice.warrantyOptions ?? null
       });
     });
 
@@ -712,7 +751,13 @@ export class MemStorage implements IStorage {
       ...sellPrice, 
       id, 
       storage: sellPrice.storage ?? null,
-      storageOptions: sellPrice.storageOptions ?? null
+      excellentPrice: sellPrice.excellentPrice ?? null,
+      goodPrice: sellPrice.goodPrice ?? null,
+      fairPrice: sellPrice.fairPrice ?? null,
+      description: sellPrice.description ?? null,
+      storageOptions: sellPrice.storageOptions ?? null,
+      typeOptions: (sellPrice as any).typeOptions ?? null,
+      warrantyOptions: (sellPrice as any).warrantyOptions ?? null
     };
     this.sellPrices.set(id, newSellPrice);
     return newSellPrice;
