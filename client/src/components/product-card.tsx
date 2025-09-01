@@ -1,13 +1,21 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import type { Product } from "@shared/schema";
+import type { Product, City } from "@shared/schema";
 
 interface ProductCardProps {
   product: Product;
+  city: City | undefined;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, city }: ProductCardProps) {
+  const handleContactUs = () => {
+    // Fallback to a generic number if city or its number is not available
+    const whatsappNumber = city?.whatsappNumber || "6285331069777"; 
+    const message = `Hi, I'm interested in buying the ${product.name} (${product.storage}) available in ${city?.displayName || 'your city'}.`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
   return (
     <Card className="bg-charcoal border-electric-yellow/20 card-hover h-full flex flex-col">
       <img
@@ -44,6 +52,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             size="sm"
             className="bg-electric-yellow text-black hover:glow-yellow-strong transition-all duration-300"
             data-testid={`button-buy-${product.id}`}
+            onClick={handleContactUs}
           >
             <i className="fas fa-shopping-cart mr-1"></i>Buy
           </Button>

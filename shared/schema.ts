@@ -9,6 +9,7 @@ export const cities = pgTable("cities", {
   displayName: text("display_name").notNull(),
   productCount: integer("product_count").notNull().default(0),
   imageUrl: text("image_url").notNull(),
+  whatsappNumber: text("whatsapp_number"),
 });
 
 export const categories = pgTable("categories", {

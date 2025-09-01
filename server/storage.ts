@@ -54,31 +54,43 @@ export class MemStorage implements IStorage {
         name: "malang",
         displayName: "Malang",
         productCount: 0, // Will be calculated based on product stock
-        imageUrl: "/cities/malang.jpeg"
+        imageUrl: "/cities/malang.jpeg",
+        whatsappNumber: "6287792916664" // Example Malang
       },
       {
         name: "surabaya",
         displayName: "Surabaya",
         productCount: 0, // Will be calculated based on product stock
-        imageUrl: "/cities/surabaya.jpeg"
+        imageUrl: "/cities/surabaya.jpeg",
+        whatsappNumber: "6287877133422" // Example Surabaya
       },
       {
         name: "bandung",
         displayName: "Bandung",
         productCount: 0, // Will be calculated based on product stock
-        imageUrl: "cities/bandung.png"
+        imageUrl: "cities/bandung.png",
+        whatsappNumber: "6282121880882" // Example Bandung
       },
       {
         name: "jakarta",
         displayName: "Jakarta",
         productCount: 0, // Will be calculated based on product stock
-        imageUrl: "/cities/jakarta.jpg"
+        imageUrl: "/cities/jakarta.jpg",
+        whatsappNumber: "628988115656" // Example Jakarta
       }
     ];
 
     citiesData.forEach(city => {
       const id = randomUUID();
-      this.cities.set(id, { ...city, id, productCount: city.productCount || 0 });
+      const newCity: City = {
+        id: id,
+        name: city.name,
+        displayName: city.displayName,
+        imageUrl: city.imageUrl,
+        productCount: city.productCount ?? 0,
+        whatsappNumber: city.whatsappNumber ?? null,
+      };
+      this.cities.set(id, newCity);
     });
 
     // Initialize categories
@@ -679,7 +691,12 @@ export class MemStorage implements IStorage {
 
   async createCity(city: InsertCity): Promise<City> {
     const id = randomUUID();
-    const newCity: City = { ...city, id, productCount: city.productCount ?? 0 };
+    const newCity: City = { 
+      ...city, 
+      id, 
+      productCount: city.productCount ?? 0,
+      whatsappNumber: city.whatsappNumber ?? null
+    };
     this.cities.set(id, newCity);
     return newCity;
   }

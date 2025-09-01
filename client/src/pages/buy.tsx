@@ -148,7 +148,7 @@ export default function Buy() {
             ) : (
               <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {sortedProducts?.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                  <ProductCard key={product.id} product={product} city={selectedCity} />
                 ))}
               </div>
             )}
