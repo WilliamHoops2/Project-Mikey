@@ -7,7 +7,10 @@
       // This script checks to see if a redirect is present in the query string,
       // and if so, redirects to the given page.
       // This allows us to use a single page app with GitHub Pages.
-      const segmentCount = 0;
+      // Set this to the number of segments in your project's path on GitHub Pages.
+      // For example, if your URL is https://user.github.io/repo-name/, segmentCount should be 1.
+      // If you are using a custom domain, segmentCount should be 0.
+      const segmentCount = 1;
       (function(l) {if (l.search) {var q = {};l.search.slice(1).split('&').forEach(function(v) {var a = v.split('=');q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');});if (q.p !== undefined) {window.history.replaceState(null, null,l.pathname.slice(0, -1 * (1 + segmentCount)).split('/').slice(0, -1).join('/') + '/?' + l.search.slice(1).replace(/&?p=[^&]*/, ''));}}}(window.location))
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
